@@ -1,14 +1,32 @@
 class CollectionsController < ApplicationController
 
+    before_action :set_collection, only: [:show, :update]
+
+
     def index
-        collections = Collection.all
-        render collections 
+        @collections = Collection.all
     end
     def show 
-        collection = Collection.find(params[:id])
-        render collection 
+
+    end
+    def edit
+
     end
     def update
-        Co
+        if @collection.update(collection_params)
+            redirect_to @collection, notice: 'Collection updated successfully.'
+        else 
+            render :edit
+        end
     end
+
+    private 
+
+    def set_collection
+        @collection = Collection.find(params[:id])
+    end
+    def collection_params
+        Collection.find(params[:id])
+    end
+
 end
