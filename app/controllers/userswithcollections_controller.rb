@@ -1,0 +1,2 @@
+class UserswithcollectionsController < ApplicationController
+end
