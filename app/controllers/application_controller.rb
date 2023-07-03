@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
     def index 
         resources = resource_class.all
-        instance_variable_set("@#{resource_name.plurilize}", resources)
+        instance_variable_set("@#{resource_name.pluralize}", resources)
 
     end
     def show
