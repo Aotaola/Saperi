@@ -2,9 +2,10 @@
     <h1>
         here are all the collections
     </h1>
-    <ul>
-        <li>
-            <%= link_to 'Collection', show_path %>
-        </li>
-    </ul>
+    
+    <% @collections.each do |collection|%>
+        <h4>
+            <%= link_to collection.title, collection_path(collection) %>
+        </h4>
+    <%end%>
 </html>
