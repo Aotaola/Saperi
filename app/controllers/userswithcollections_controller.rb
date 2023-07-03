@@ -1,2 +1,0 @@
-class UserswithcollectionsController < ApplicationController
-end
