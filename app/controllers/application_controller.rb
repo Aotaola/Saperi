@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
     before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
 
-    def new
+    def create
        resource = resource_class
-        resource.new(resource_params)
+        resource.create
     end
     def index 
         resources = resource_class.all
