@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'application#home'
   get "/about", to: 'application#about'
+  get "/signup", to: 'users#new'
   # get "/index", to: 'collections#index'
   
 

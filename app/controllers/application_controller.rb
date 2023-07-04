@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
     before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
+
+    def new
+       resource = resource_class
+        resource.new(resource_params)
+    end
     def index 
         resources = resource_class.all
         instance_variable_set("@#{resource_name.pluralize}", resources)
