@@ -1,9 +1,35 @@
-<html>
+
 
     <h3>
         Signup
     </h3>
 
-    <%= render 'form'%>
+     <div>
 
-</html>
+        <%= form_with model: @user do |f| %>
+            <li>
+                <%= f.label :name %>
+                <%= f.text_field :name %>
+            </li>
+            <li>
+                <%= f.label :bio %>
+                <%= f.text_field :bio %>
+            </li>
+            <li>
+                <%= f.label :email %>
+                <%= f.email_field :email %>
+            </li>
+            <li>
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+            </li>
+            <li>
+                <%= f.file_field :avatar, placeholder: "choose image" %>
+            </li>
+            <li>
+            <%= f.submit %>
+            </li>
+            
+        <% end %>
+    </div>
+

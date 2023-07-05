@@ -26,7 +26,6 @@ class CollectionsController < ApplicationController
    end
    def new
       @collection = Collection.new
-   
    end
 
    def create
