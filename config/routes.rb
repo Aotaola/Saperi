@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :user_collections
   resources :user_forums
-  resources :users
+  # resources :users
   resources :forums
   resources :sources
   resources :collections
@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'application#home'
   get "/about", to: 'application#about'
-  get "/signup", to: 'users#create'
+  get "/signup", to: 'users#new'
+  post "/signup", to: 'users#create'
   # get "/index", to: 'collections#index'
   
 

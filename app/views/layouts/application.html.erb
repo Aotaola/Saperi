@@ -11,6 +11,29 @@
   </head>
 
   <body>
+    <h1>
+      Saperi  
+    </h1>
+    <p>
+      (latin)
+      present passive infinitive of 'sapere': to be known, to be wise, to have good taste and judgement
+    </p>
+    
     <%= yield %>
+    <ul>
+    <li>
+     <%= link_to 'About', about_path %>
+    </li>
+    <li>
+    <%= link_to 'Collections', collections_path %>
+    </li>
+    <li>
+    <%= link_to 'Signup', signup_path %>
+    </li>
+    <li>
+    <%= link_to 'Home', root_path %>
+    </li>
+</ul>
   </body>
+  
 </html>

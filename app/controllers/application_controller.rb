@@ -1,15 +1,20 @@
 class ApplicationController < ActionController::Base
     before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
-
+    def new
+        resource_class.new
+    end
     def create
-       resource = resource_class
-        resource.create
+       resource_class.new
+        # if resource_class.successfully_created
+        #     notice "@#{resource_name.capitilize} was successfully created."
+        # else
+        #     render :new
+        # end
     end
     def index 
         resources = resource_class.all
-        instance_variable_set("@#{resource_name.pluralize}", resources)
-
+        instance_variable_set("@#{resource_name.pluralize}", resources) 
     end
     def show
 
