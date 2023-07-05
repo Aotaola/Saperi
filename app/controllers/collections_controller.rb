@@ -24,14 +24,19 @@ class CollectionsController < ApplicationController
       @collection.destroy
       redirect_to collections_path, notice: "@#{@collection.title.capitilize} was successfully deleted."
    end
-
    def new
-      collection = Collection.new(collection_params)
-         if collection.save
-            redirect_to collection_path, notice: "Collection was successfully created"
+      @collection = Collection.new
+   
+   end
+
+   def create
+      @collection = Collection.create(collection_params)
+      
+         if @collection.save
+            redirect_to @collection, notice: "Collection was successfully created"
          else
             flash[alert:] =  "there was an error creating the collection"
-            redirect_to :new
+            render :new
          end
    end
 

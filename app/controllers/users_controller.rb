@@ -35,6 +35,7 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to root_path, notice: "@#{@user.name.capitilize} was successfully deleted"
     end
+    
     private
 
     def set_user
