@@ -1,9 +1,9 @@
 class ForumsController < ApplicationController
 
-    private 
+    # private 
 
-    def forum_params
-        params.require(:forum).permit(:id)
-    end
+    # def forum_params
+    #     params.require(:forum).permit(:id)
+    # end
     
 end
