@@ -27,7 +27,7 @@
 5.times do
   Source.create(description: Faker::Books::Lovecraft.tome,
       link: Faker::Books::Lovecraft.location, 
-      users_id: User.find(i).id)
+      user: User.find(i))
       i += 1
   end
 

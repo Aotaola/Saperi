@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :sources
   resources :user_collections
   resources :user_forums
   resources :users, except: [:new]
   resources :forums
-  resources :sources
   resources :collections
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_164613) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_08_145900) do
   create_table "collections", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -29,10 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_164613) do
   create_table "sources", force: :cascade do |t|
     t.string "description"
     t.string "link"
-    t.integer "users_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_sources_on_users_id"
+    t.index ["user_id"], name: "index_sources_on_user_id"
   end
 
   create_table "user_collections", force: :cascade do |t|
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_164613) do
   end
 
   add_foreign_key "forums", "collections"
-  add_foreign_key "sources", "users", column: "users_id"
+  add_foreign_key "sources", "users"
   add_foreign_key "user_collections", "collections"
   add_foreign_key "user_collections", "users"
   add_foreign_key "user_forums", "forums"

@@ -1,42 +1,18 @@
 class SourcesController < ApplicationController
-    before_action :set_source, only: [:show, :edit, :update]
+    before_action :set_forum, only: [:show]
 
-    def show
-
-    end
-    def edit
+    def show 
 
     end
-    def update
-        if @source.update
-            notice 'Source updated successfully'
-        else
-            flash[:error] = "error while updating source"
-            render :edit
-        end
-    end
-    def new
-        @source = Source.new
-    end
-    def create
-        @source = Source.create(source_params)
-            if @source.save
-                notice 'Source was successfully created'
-            else
-                flash[:error] = 'an error occurred while creating'
-                flash[:notice] = source.errors.full_messages.to_sentence
-                render :new
-            end
+
+    private 
+
+    def set_forum
+        @forum = Forum.find(params[:id])
     end
 
-    private
-
-    def set_source
-        @source = Source.find(params[:id])
-    end
-
-    def source_params
-        params.require(:source).permit(:id, :description, :link)
+    def forum_params
+        params.require(:forum).permit(:id)
     end
     
 end
