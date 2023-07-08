@@ -15,6 +15,9 @@ class SourcesController < ApplicationController
             render :edit
         end
     end
+    def new
+        @source = Source.new
+    end
     def create
         @source = Source.create(source_params)
             if @source.save
@@ -22,6 +25,7 @@ class SourcesController < ApplicationController
             else
                 flash[:error] = 'an error occurred while creating'
                 flash[:notice] = source.errors.full_messages.to_sentence
+                render :new
             end
     end
 
