@@ -5,4 +5,9 @@
     <h3>
         <%= @collection.description%>
     </h3>
+    <br/>
+    <%= render partial: 'forum/show' ,
+     locals: {forum: @forum}
+    %>
+
 </html>
