@@ -36,7 +36,6 @@ class UsersController < ApplicationController
             redirect_to @user, notice: "User was successfully created"
         else
             flash[:alert] = "there was an error creating the user"
-            
             render :new
         end
     end

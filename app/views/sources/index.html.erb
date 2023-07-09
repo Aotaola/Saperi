@@ -1,0 +1,14 @@
+<html>
+    <h1>
+        here are all the sources
+    </h1>
+    
+    <% @sources.each do |source|%>
+        <h4>
+            <%= link_to source.description, source_path(source) %>
+        </h4>
+       
+    <%end%>
+    <%= link_to 'Create source', new_source_path %>
+    <%# <%= link_to 'Edit', edit_source_path %> 
+</html>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :sources, only: [:show, :edit, :update, :destroy]
+  resources :sources
   resources :user_collections
   resources :user_forums
   resources :users, except: [:new]

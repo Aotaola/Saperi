@@ -1,1 +1,13 @@
-<>
+<h1>Here are all the sources</h1>
+<%= form_with model: @source do |f|%>
+
+    <li>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </li>
+     <li>
+        <%= f.label :link %>
+        <%= f.text_area :link %>
+    </li>
+    <%= f.submit "update"%>
+<%end%>
