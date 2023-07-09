@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :sources
+  resources :sources, only: [:show, :edit, :update, :destroy]
   resources :user_collections
   resources :user_forums
   resources :users, except: [:new]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/signup", to: 'users#new'
   get "/login", to: 'sessions#new'
   post "login", to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  delete "/logout", to: 'sessions#destroy'
   
   # get "/index", to: 'collections#index'
   

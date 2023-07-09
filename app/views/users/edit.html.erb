@@ -1,0 +1,27 @@
+<h2>Edit</h2>
+<%= form_with model: @user do |f|%>
+    <li>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </li>
+    <li>
+        <%= f.label :email%>
+        <%= f.text_field :email%>
+    </li>
+    <li>
+        <%= f.label :bio %>
+        <%= f.text_field :bio %>
+    </li>
+     <li>
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+    </li>
+     <li>
+        <%= f.label :password %>
+        <%= f.text_field :password %>
+    </li>
+    <li>
+        <%= f.submit "Update"%>
+    </li>
+
+<%end%>

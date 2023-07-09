@@ -14,18 +14,16 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(user_params)
-            redirect_to @user, notice: "@#{@user.name.capitilize} was successfully updated"
+            redirect_to @user, notice: "Your profile was successfully updated"
         else 
-            flash[:alert] = "@#{@user.name.capitilize},an error has occurred while updating"
-            render :edit
+            flash[:alert] = "Sorry, there was an error has occurred while updating"
+            render 'edit'
         end
-        uploaded_file = params[:avatar]
-        file_path = Rails.root.join
     end
 
     def destroy
         @user.destroy
-        redirect_to root_path, notice: "@#{@user.name.capitilize} was successfully deleted"
+        redirect_to root_path, notice: "@#{@user.name.capitalize} was successfully deleted"
     end
 
     def new
@@ -50,7 +48,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:id, :name, :email, :avatar, :bio, :password)
+        params.require(:user).permit(:name, :email, :avatar, :bio, :password)
     end
     
 end

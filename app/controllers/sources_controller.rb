@@ -1,9 +1,10 @@
 class SourcesController < ApplicationController
     
-    before_action :set_forum, only: [:show, :edit, :update] 
+    before_action :set_source, only: [:show, :edit, :update] 
 
     def show 
-
+        @sources = Source.all
+        @sources
     end
     def edit
 
@@ -23,12 +24,12 @@ class SourcesController < ApplicationController
 
     private 
 
-    def set_forum
-        @forum = Forum.find(params[:id])
+    def set_source
+        @source = Source.find(params[:id])
     end
 
-    def forum_params
-        params.require(:forum).permit(:id)
+    def source_params
+        params.require(:source).permit(:id, :link, :description)
     end
     
 end
