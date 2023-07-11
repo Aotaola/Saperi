@@ -1,7 +1,7 @@
 <div class="container-md">
     <h1 class="font-monospace">
-       <%= @collection.title %>
-    </h1>
+       <%= @collection.title %> 
+    </h1> <%= button_to 'Add', user_collections_path, method: :post, class: 'btn btn btn-solid-dark' %>
     <h3 class="font-monospace">
         <%= @collection.description%>
     </h3>
