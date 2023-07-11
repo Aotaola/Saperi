@@ -2,11 +2,17 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]
 
     def index
-        @users = User.all
-        @users
+       
     end
 
-    def show   
+    def show  
+         
+        if current_user == @user
+            render 'show'
+         else
+            redirect_to login_path
+         end
+
     end
 
     def edit 

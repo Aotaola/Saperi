@@ -1,27 +1,25 @@
 
-<div>
+<div class='container-md font-monospace'>
     <h2><%= @user.name %></h2>
     <%=@user.bio%>
-    <img
-    <%= @user.avatar %>
-    >
-</div>
+  
 
-    <h1>
+    <h3>
         here are all the sources
-    </h1>
+    </h3>
     
-    <% @sources.each do |source|%>
-        <h4>
+    <%# <%= @sources.each do |source|%>
+        <%# <h4>
             <%= link_to source.description, source_path(source) %>
-        </h4>
-       
-    <%end%>
-    <%= link_to 'Create source', new_source_path %>
-    <%# <%= link_to 'Edit', edit_source_path %> 
+        <%# </h4> %>
+        
+    <%# <%end%>  
+     <%= link_to 'Create source', new_source_path %> 
+    <%= link_to 'Edit', edit_source_path %> 
 
 <%= link_to "Edit", edit_user_path%>
-<%= button_to "Logout", logout_path, method: :delete %>
+<%= button_to "Logout", logout_path, class: 'btn btn-outline-dark',method: :delete %>
  <%= link_to 'Create Collection', new_collection_path %>
     <%# <%= link_to 'Edit', edit_collection_path %> 
 
+</div>

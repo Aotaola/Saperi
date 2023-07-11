@@ -1,13 +1,18 @@
 <html>
-    <h1>
-        here are all the collections
+<div class="container-md">
+    <h1 class="font-monospace">
+        Collections
     </h1>
-    
-    <% @collections.each do |collection|%>
-        <h4>
-            <%= link_to collection.title, collection_path(collection) %>
-        </h4>
-    <%end%>
+<br/>
+       <div class="container-md"> 
+        <% @collections.each do |collection|%>
+            <h4 class="font-monospace">
+                <%= link_to collection.title, collection_path(collection) %>
+            </h4>
+             <br/>
+        <%end%>
+        </div>
+</div>
     <%# <%= link_to 'Create Collection', new_collection_path %>
     <%# <%= link_to 'Edit', edit_collection_path %>  
 </html>

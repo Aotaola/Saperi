@@ -1,15 +1,20 @@
-<h1>Login<h1>
-    <%= form_with(scope: :session, url: login_path) do |f| %>
+<div class = "container-md">
+    <h1 class ="font-monospace">Login<h1>
 
-        <li>
-             <%= f.email_field :email, placeholder: "your account email"%>
-        </li>
-        <li>
-            <%= f.password_field :password, placeholder: "your password"%>
-        </li>
-        <li>
-            <%= f.submit "Login" %>
-        </li>
-        
+        <%= form_with(scope: :session, url: login_path) do |f| %>
+        <ul class ="font-monospace">
+
+            <li >
+                <%= f.email_field :email, placeholder: "your account email"%>
+            </li >
+            <li >
+                <%= f.password_field :password, placeholder: "your password"%>
+            </li>
+            <li >
+                <%= f.submit "Login" %>
+            </li>
+            
+        </ul>
    <% end %>
    <%=link_to "Signup", signup_path%>
+</div>
