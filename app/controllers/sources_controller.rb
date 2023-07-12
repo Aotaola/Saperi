@@ -1,6 +1,7 @@
 class SourcesController < ApplicationController
     
     before_action :set_source, only: [:show, :edit, :update]
+    before_action :set_user_id
 
     def index
         @sources = Source.all
@@ -16,12 +17,12 @@ class SourcesController < ApplicationController
 
     end
     def create
-        @source = Source.create(source_params)
+        @source = Source.new(source_params)
             if @source.save
                 redirect_to @source,
                 notice: "Source was successfully created"
             else
-                redirect_to 'new'
+                render :new
                 flash[:error] = "Something went wrong"
             end
     end
@@ -52,8 +53,12 @@ class SourcesController < ApplicationController
         @source = Source.find(params[:id])
     end
 
+
     def source_params
-        params.require(:source).permit(:link, :description)
+        params.require(:source).permit(:link, :description, :user_id)
+    end
+    def set_user_id
+        current_user.id
     end
     
 end

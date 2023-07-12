@@ -4,9 +4,11 @@
     </h1>
     
     <% @sources.each do |source|%>
-        <h4>
+        <ul>
+            <li>
             <%= link_to source.description, source_path(source) %>
-        </h4>
+            </li>
+        </ul>
        
     <%end%>
     <%= link_to 'Create source', new_source_path %>

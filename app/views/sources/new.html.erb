@@ -1,0 +1,16 @@
+<h3>create a sources</h3>
+
+<%= form_with model: @source do |f| %>
+    <ul>
+        <li>
+            <%= f.text_field :link, placeholder: "link"%>
+        </li>
+        <li>
+        <%= f.text_field :description, placeholder: "description"%>
+        </li>
+   
+         <li>
+        <%= f.submit %>
+        </li>
+    </ul>
+<%end%>
