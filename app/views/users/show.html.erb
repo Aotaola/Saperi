@@ -4,12 +4,19 @@
     <%=@user.bio%>
     <div class='container-md'>  
         <%= link_to 'Create source', new_source_path, class: 'btn btn-outline-primary' %> 
-        <%= link_to 'Edit your source', edit_source_path, class: 'btn btn-outline-info' %> 
         <%= link_to 'Create Collection', new_collection_path, class: 'btn btn-outline-primary' %>
     </div>
     <div class='container-md'>
-    <p>here will be stuff<p>
-    
+    <p>my sources<p>
+    <% if @sources %>
+        <% @sources.each do |source| %>
+            <div class = 'container-sm'>
+                <p> Description: <%= source.description %>  </p>
+                <p> Link: <%= link_to source.link, source.link %> </p> 
+                 <br/>
+            </div>
+        <%end%>
+    <%end%>
     </div>
     <div class='container-md'>
         <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary'%>

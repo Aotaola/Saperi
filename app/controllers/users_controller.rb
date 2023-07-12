@@ -1,18 +1,11 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]
 
-    def index
-       
-    end
-
     def show  
-         
-        if current_user == @user
-            render 'show'
-         else
+        @sources = @user.sources
+        if current_user != @user
             redirect_to login_path
          end
-
     end
 
     def edit 
@@ -55,5 +48,4 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :avatar, :bio, :password)
     end
-    
 end

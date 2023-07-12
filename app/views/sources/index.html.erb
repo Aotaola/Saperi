@@ -1,16 +1,14 @@
-<html>
-    <h1>
-        here are all the sources
-    </h1>
-    
-    <% @sources.each do |source|%>
-        <ul>
-            <li>
-            <%= link_to source.description, source_path(source) %>
-            </li>
-        </ul>
-       
-    <%end%>
-    <%= link_to 'Create source', new_source_path %>
-    <%# <%= link_to 'Edit', edit_source_path %> 
-</html>
+<div class = 'container-md font-monospace'>
+    <h4>sources</h4>
+    <div class = 'container-sm'>
+        <% @sources.each do |source|%>
+            <ul>
+                <li>
+                    <%= link_to source.description, source_path(source) %>
+                    <%= link_to 'Edit', edit_source_path(source),  class: 'btn btn-outline-secondary' %>
+                </li>
+            </ul>
+        <%end%>
+    </div>
+    <%= link_to 'Create source', new_source_path, class: 'btn btn-outline-secondary' %>
+</div>

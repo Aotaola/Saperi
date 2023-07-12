@@ -1,13 +1,10 @@
-
-<div class = "container-sm">
-     <%= link_to "Edit", edit_source_path, class: 'btn btn-outline-secondary ' %>
+<div class = 'container-md'>
+    <div class = "container-sm">
+        <%= link_to "Edit", edit_source_path, class: 'btn btn-outline-secondary ' %>
+    </div>
+    <div class = "container-sm font-monospace">
+        <p> Description: <%= @source.description %>  </p>
+        <p>Link: <%=link_to @source.link, @source.link %> </p> 
+    </div>
 </div>
-<div class = "container-sm font-monospace">
-    <h3>
-        <%= @source.description %>  
-    </h3>  
-     <a>
-        <%= @source.link %> 
-     </a>
-</div>
-    
+        
