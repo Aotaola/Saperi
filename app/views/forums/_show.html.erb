@@ -1,9 +1,15 @@
 
  <div class = "container-fl">
-    <h2>!!!!!!!!!<h2>
-    <h3> this is a forum</h3>
-    <%= form_with model: @forum do |f|%>
-       
-    <%end%>
-        
+   <% if @users.present? %>
+  <h2>Forum Members</h2>
+  <% @users.each do |user| %>
+    <h3><%= user.name %></h3>
+    <% user.sources.each do |source| %>
+      <p><%= source.description %> - <%= source.link %></p>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>This forum currently has no members.</p>
+  <%= button_to 'join', user_forums_path(@forum), class: 'btn btn-outline-dark', method: :post %>
+<% end %>
 </div>

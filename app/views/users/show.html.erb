@@ -19,6 +19,15 @@
     </div>
     <div class='container-md'>
         <%= link_to 'Create Collection', new_collection_path, class: 'btn btn-outline-primary' %>
+        <p>my collections<p>
+    <% if @user_collection %>
+        <% @user_collection.each do |user_collection| %>
+            <div class = 'container-sm'>
+                <p> title: <%= user_collection.collection.title %>  </p>
+                 <br/>
+            </div>
+        <%end%>
+    <%end%>
     </div>
     <div class='container-md'>
         <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary'%>

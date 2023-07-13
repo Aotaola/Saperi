@@ -1,24 +1,15 @@
-<h3>create a collection</h3>
-<% if @source.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@source.errors.count, "error") %> prohibited this source from being saved:</h2>
+<div class = 'container-sm font-monospaced'>
+  <h3>create a collection</h3>
 
-    <ul>
-    <% @source.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_with model: @collection do |f| %>
-    <li>
-        <%= f.text_field :title, placeholder: "title"%>
-    </li>
-    <li>
-        <%= f.text_field :description, placeholder: "what is your collection about"%>
-    </li>
-    <li>
-        <%= f.submit %>
-    </li>
-<%end%>
+  <%= form_with model: @collection do |f| %>
+      <li>
+          <%= f.text_field :title, placeholder: "title"%>
+      </li>
+      <li>
+          <%= f.text_field :description, placeholder: "what is your collection about"%>
+      </li>
+      <li>
+          <%= f.submit %>
+      </li>
+  <%end%>
+</div>

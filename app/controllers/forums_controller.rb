@@ -4,6 +4,9 @@ class ForumsController < ApplicationController
     def show 
 
     end
+    def create
+        
+    end
 
     private 
 
