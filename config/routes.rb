@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'application#home'
   get '/about', to: 'application#about'
-  delete '/logout', to: 'sessions#destroy', as: :logout
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  delete '/signout', to: 'sessions#destroy'
+
   
 
   
