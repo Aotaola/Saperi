@@ -1,6 +1,6 @@
 class SourcesController < ApplicationController
     
-    before_action :set_source, only: [:show, :edit, :update]
+    before_action :set_source, only: [:show, :edit, :update, :create, :destroy]
  
 
     def index

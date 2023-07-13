@@ -1,11 +1,11 @@
 <div class="container-md">
+    <%= button_to 'Add', collection_user_collections_path(@collection), class: 'btn btn-outline-dark', method: :post %>
     <h1 class="font-monospace">
        <%= @collection.title %> 
-    </h1> <%= button_to 'Add', user_collections_path, method: :post, class: 'btn btn-outline-dark' %>
+    </h1> 
     <h3 class="font-monospace">
         <%= @collection.description%>
     </h3>
     <br/>
     <%# <%= render 'forum/show' %> 
 </div>
-
