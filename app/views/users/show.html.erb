@@ -4,7 +4,6 @@
     <%=@user.bio%>
     <div class='container-md'>  
         <%= link_to 'Create source', new_source_path, class: 'btn btn-outline-primary' %> 
-        <%= link_to 'Create Collection', new_collection_path, class: 'btn btn-outline-primary' %>
     </div>
     <div class='container-md'>
     <p>my sources<p>
@@ -17,6 +16,9 @@
             </div>
         <%end%>
     <%end%>
+    </div>
+    <div class='container-md'>
+        <%= link_to 'Create Collection', new_collection_path, class: 'btn btn-outline-primary' %>
     </div>
     <div class='container-md'>
         <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary'%>

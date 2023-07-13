@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
-  resources :sources
-  resources :user_collections
-  resources :user_forums
-  resources :users, except: [:new]
-  resources :forums
-  resources :collections
+  resources :sources, only: [:show, :index, :edit, :update, :create, :destroy]
+  resources :user_collections, only: [:show, :index, :create, :destroy]
+  resources :user_forums, only: [:show, :create, :destroy]
+  resources :users, only: [:new, :show, :edit, :update, :destroy]
+  resources :forums, only: [:create, :destroy, :show]
+  resources :collections, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
   root 'application#home'
   get "/about", to: 'application#about'
-  get "/signup", to: 'users#new'
-  get "/login", to: 'sessions#new'
-  delete "/logout", to: 'sessions#destroy'
-  post "login", to: 'sessions#create'
-  post "add", to: 'user_collections#create'
+  
   
   # get "/index", to: 'collections#index'
   
