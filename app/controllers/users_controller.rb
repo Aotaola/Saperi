@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
     def show  
         @sources = @user.sources
+        @collections = @user.collections
         if current_user != @user
             redirect_to login_path
          end

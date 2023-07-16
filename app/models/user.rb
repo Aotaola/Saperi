@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
     has_many :sources
-    has_many :users_collections
-    has_many :collections, through: :users_collections
+    has_many :user_collection
+    has_many :collections, through: :user_collection
     has_many :users_forums
     has_many :forums, through: :users_forums
 
