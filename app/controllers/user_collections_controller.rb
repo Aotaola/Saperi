@@ -1,6 +1,7 @@
 class UserCollectionsController < ApplicationController
     before_action :set_collection, only: [:show,  :destroy, :create, :new]
-    before_action :set_user_collection, only: [:create]
+    before_action :set_user_collection, only: [:create, :show, :index, :destroy]
+
 
     def show
 
@@ -28,7 +29,7 @@ class UserCollectionsController < ApplicationController
     end
 
     private
-
+   
     def set_collection
        @collection = Collection.find(params[:collection_id])
        Rails.logger.debug "@collection = #{@collection.inspect}"

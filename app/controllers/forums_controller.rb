@@ -2,7 +2,7 @@ class ForumsController < ApplicationController
     before_action :set_forum, only: [:show]
 
     def show 
-
+        @users = @forum.users.includes(:sources)
     end
     def create
         

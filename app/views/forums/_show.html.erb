@@ -1,15 +1,14 @@
-
- <div class = "container-fl">
-   <% if @users.present? %>
-  <h2>Forum Members</h2>
-  <% @users.each do |user| %>
-    <h3><%= user.name %></h3>
-    <% user.sources.each do |source| %>
-      <p><%= source.description %> - <%= source.link %></p>
-    <% end %>
-  <% end %>
-<% else %>
+<div class = "container-sm">
+   <%= button_to 'join', user_forums_path(@forum), class: 'btn btn-outline-dark', method: :post %>
+   <% if @user.present? %>
+      <h2>Forum Members</h2>
+     <% @users.each do |user| %>
+       <h3><%= user.name %></h3>
+        <% user.sources.each do |source| %>
+          <p><%= source.description %> - <%= source.link %></p>
+        <% end %>
+      <% end %>
+  <% else %>
   <p>This forum currently has no members.</p>
-  <%= button_to 'join', user_forums_path(@forum), class: 'btn btn-outline-dark', method: :post %>
-<% end %>
+  <% end %>
 </div>

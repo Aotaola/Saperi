@@ -8,7 +8,6 @@ class CollectionsController < ApplicationController
    end
    def show
       @forum = @collection.forum
-      @users = @forum.users.includes(:sources) if @forum.present?
    end
    def edit
       

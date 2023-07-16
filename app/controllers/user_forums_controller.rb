@@ -30,7 +30,7 @@ class UserForumsController < ApplicationController
     private
 
     def set_forum
-       @forum = forum.find(params[:forum_id])
+       @forum = Forum.find(params[:forum_id])
        Rails.logger.debug "@forum = #{@forum.inspect}"
     end
     def set_user_forum
