@@ -1,6 +1,6 @@
 <div class = "container-sm">
-   <%= button_to 'join', user_forums_path(@forum), class: 'btn btn-outline-dark', method: :post %>
-   <% if @user.present? %>
+   <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-dark', method: :post %>
+   <% if @users.present? %>
       <h2>Forum Members</h2>
      <% @users.each do |user| %>
        <h3><%= user.name %></h3>

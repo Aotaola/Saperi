@@ -12,8 +12,5 @@ class Collection < ApplicationRecord
     def create_forum
         self.create_forum!
     end
-    def save_current_user
-        current_user.save
-    end
     
 end

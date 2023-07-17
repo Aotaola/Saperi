@@ -5,6 +5,11 @@ class ForumsController < ApplicationController
         @users = @forum.users.includes(:sources)
     end
     def create
+        if @forum.save
+            UserForum.create(user_id: current_user.id, forum_id: @forum.id)
+        else
+            alert: "An error occurred"
+        end
         
     end
 

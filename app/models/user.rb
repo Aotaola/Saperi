@@ -3,8 +3,8 @@ class User < ApplicationRecord
     has_many :sources
     has_many :user_collection
     has_many :collections, through: :user_collection
-    has_many :users_forums
-    has_many :forums, through: :users_forums
+    has_many :user_forums
+    has_many :forums, through: :user_forums
 
     has_secure_password
 
