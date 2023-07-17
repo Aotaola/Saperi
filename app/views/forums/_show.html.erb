@@ -1,14 +1,21 @@
-<div class = "container-sm">
-   <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-dark', method: :post %>
-   <% if @users.present? %>
-      <h2>Forum Members</h2>
-     <% @users.each do |user| %>
-       <h3><%= user.name %></h3>
-        <% user.sources.each do |source| %>
-          <p><%= source.description %> - <%= source.link %></p>
-        <% end %>
-      <% end %>
-  <% else %>
-  <p>This forum currently has no members.</p>
-  <% end %>
+<div class = 'container-sm'>
+  <div class = "container-sm">
+    <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-dark', method: :post %>
+  <div class = 'container-sm font-monospaced'>
+  </div>
+  <div class = 'container-sm font-monospaced'>
+      <% if @users %>
+          <h2>Forum Members</h2>
+              <% @users.each do |user| %>
+              <div class = 'container-fluid'>
+                  <p><%= user.name %></p>
+                  <% user.sources.each do |source| %>
+                    <p><%= source.description %> - <%= source.link %></p>
+                  <% end %>
+              </div>
+              <% end %>
+      <% else %>
+      <p>This forum currently has no members.</p>
+    <% end %>
+  </div>
 </div>
