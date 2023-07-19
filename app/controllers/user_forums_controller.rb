@@ -3,7 +3,6 @@ class UserForumsController < ApplicationController
     before_action :set_user_forum, only: [:create, :new]
 
     def show
-        @users = @forum.users
     end
     def index
         @user_forums = UserForum.all
@@ -13,13 +12,12 @@ class UserForumsController < ApplicationController
 
     end
     def create
-        puts params.inspect
 
         if @user_forum.save
-            redirect_to current_user,
+            redirect_to @user_forum,
             notice: 'You have added this forum to your profile'
         else
-            redirect_to collections_path,
+            redirect_to @user_forum,
             alert: 'something went wrong'
         end
 

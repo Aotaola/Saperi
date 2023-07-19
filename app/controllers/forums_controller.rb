@@ -1,9 +1,11 @@
 class ForumsController < ApplicationController
     before_action :set_forum, only: [:show]
 
-    def show 
+    def show
         @users = @forum.users.includes(:sources)
+        
     end
+
     def create
         if @forum.save
             UserForum.create(user_id: current_user.id, forum_id: @forum.id)

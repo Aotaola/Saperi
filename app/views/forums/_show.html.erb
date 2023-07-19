@@ -1,8 +1,10 @@
 <div class = 'container-sm'>
-  <div class = "container-sm">
+
+  <div class = 'container-sm'>
     <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-dark', method: :post %>
   <div class = 'container-sm font-monospaced'>
   </div>
+
   <div class = 'container-sm font-monospaced'>
       <% if @users %>
           <h2>Forum Members</h2>
@@ -10,7 +12,7 @@
               <div class = 'container-fluid'>
                   <p><%= user.name %></p>
                   <% user.sources.each do |source| %>
-                    <p><%= source.description %> - <%= source.link %></p>
+                    <p><%= source.description %> --- <%= source.link %></p>
                   <% end %>
               </div>
               <% end %>
@@ -18,4 +20,5 @@
       <p>This forum currently has no members.</p>
     <% end %>
   </div>
+
 </div>
