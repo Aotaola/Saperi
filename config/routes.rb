@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :collection_sources
   resources :sources, only: [:show, :index, :new, :edit, :update, :create, :destroy]
   resources :user_forums, only: [:show, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]

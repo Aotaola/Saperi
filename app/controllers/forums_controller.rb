@@ -3,6 +3,7 @@ class ForumsController < ApplicationController
 
     def show
         @users = @forum.users.includes(:sources)
+        @sources = @forum.sources
         
     end
 

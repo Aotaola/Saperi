@@ -2,7 +2,6 @@ class SourcesController < ApplicationController
     
     before_action :set_source, only: [:show, :edit, :update, :destroy]
  
-
     def index
         @sources = Source.all
         @sources
@@ -52,7 +51,6 @@ class SourcesController < ApplicationController
     def set_source
         @source = Source.find(params[:id])
     end
-
 
     def source_params
         params.require(:source).permit(:link, :description)
