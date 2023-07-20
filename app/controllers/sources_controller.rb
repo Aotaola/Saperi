@@ -17,15 +17,18 @@ class SourcesController < ApplicationController
     end
     def create
         @source = current_user.sources.build(source_params)
-            if @source.save
-                redirect_to @source,
-                notice: "Source was successfully created"
-            else
-                render :new
-                flash[:error] = "Something went wrong"
-            end
-    end
-
+      
+        if @source.save
+          
+          CollectionSource.create(collection_id: params[:collection_id], source_id: @source.id)
+          redirect_to @source, notice: 'Source was successfully created.'
+          
+        else
+          flash[:error] = 'Something went wrong'
+          render :new
+        end
+      end
+      
     def show 
         
     end
