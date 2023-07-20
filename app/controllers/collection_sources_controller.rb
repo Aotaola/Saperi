@@ -11,16 +11,20 @@ class CollectionSourcesController < ApplicationController
     end
     
     def new
+        @collection = Collection.find(params[:collection_id])
+        @collection_source = CollectionSource.new
     end
     
     def create
-      @collection_source = CollectionSource.new(source: @source, collection: @collection)
+        @collection = Collection.find(params[:collection_id])
+        @source = Source.find(params[:source_id]) # You'll need to ensure source_id is being passed in the parameters
+        @collection_source = CollectionSource.new(source: @source, collection: @collection)
       
-      if @collection_source.save
-        redirect_to @collection, notice: "You have added this source to #{@collection.name}"
-      else
-        redirect_to @collection, alert: 'Something went wrong'
-      end
+        if @collection_source.save
+          redirect_to @collection, notice: 'Source was successfully added to collection.'
+        else
+          render :new
+        end
     end
     
     def destroy

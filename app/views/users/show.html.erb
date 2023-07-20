@@ -10,7 +10,7 @@
     <% if @sources %>
         <% @sources.each do |source| %>
             <div class = 'container-sm'>
-                <p> Description: <%= source.description %>  </p>
+                <p> Description: <%= link_to source.description, source_path(source) %>  </p>
                 <p> Link: <%= link_to source.link, source.link %> </p> 
                  <br/>
             </div>

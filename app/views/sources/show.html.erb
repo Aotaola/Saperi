@@ -6,5 +6,9 @@
         <p> Description: <%= @source.description %>  </p>
         <p>Link: <%=link_to @source.link, @source.link %> </p> 
     </div>
+    <div class = "container-sm font-monospace">
+    <%= render 'collection_sources/new' %>
+    </div>
+
 </div>
         
