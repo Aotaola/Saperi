@@ -9,9 +9,7 @@ class CollectionsController < ApplicationController
       @forum = @collection.forum
       @users = @collection.users.includes(:sources)
    end
-   def search
-      @collections = Collection.where('name LIKE ?', "%#{params[:query]}%")
-   end
+   
    def edit
       
    end
