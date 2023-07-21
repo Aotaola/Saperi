@@ -1,7 +1,6 @@
 class CollectionsController < ApplicationController
 
    before_action :set_collection, only: [:show, :edit, :update]
-
    def index 
       @collections = Collection.all
       @collections
@@ -9,6 +8,9 @@ class CollectionsController < ApplicationController
    def show
       @forum = @collection.forum
       @users = @collection.users.includes(:sources)
+   end
+   def search
+      @collections = Collection.where('name LIKE ?', "%#{params[:query]}%")
    end
    def edit
       

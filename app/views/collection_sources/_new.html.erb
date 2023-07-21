@@ -2,8 +2,8 @@
   <%= form.hidden_field :source_id, value: @source.id %>
   <%= form.submit 'Add Source to Collection' %>
 <% end %>
-<%# <%= form_with(url: search_collections_path, method: :get, local: true) do |form| %>
-  <%# <%= form.text_field :query, placeholder: "Search collections..." %> %>
-  <%# <%= form.submit 'Search' %> %>
-<%# <% end %> %>
- %>
+<%= form_with(url: search_collections_path, method: :get, local: true) do |form| %>
+  <%= form.text_field :query, placeholder: "Search collections..." %> 
+  <%= form.submit 'Search' %> 
+<% end %> 
+

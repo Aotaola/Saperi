@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
+  get 'search_collections', to: 'collections#search'
 
-  
-
-  
 end
