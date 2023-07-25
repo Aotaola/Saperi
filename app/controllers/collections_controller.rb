@@ -1,9 +1,11 @@
 class CollectionsController < ApplicationController
 
    before_action :set_collection, only: [:show, :edit, :update]
+
    def index 
       @collections = Collection.all
       @collections
+      @query = Collection.ransack(params[:query])
    end
    def show
       @forum = @collection.forum

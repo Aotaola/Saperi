@@ -5,6 +5,13 @@ class Collection < ApplicationRecord
 
     validates :title, presence: true, length: {minimum: 5, maximum: 80}
     validates :description, length: {minimum: 5, maximum: 250}
+
+    def self.ransackable_associations(auth_object = nil)
+        ["title", "description"]
+    end
+    
+    
+
     
     after_create :create_forum
 
