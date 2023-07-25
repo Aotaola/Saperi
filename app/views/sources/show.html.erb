@@ -10,8 +10,27 @@
     <div class = "container-sm font-monospace">
            <%= search_form_for @query do |f| %>
                 <%= f.search_field :title_or_description_cont, placeholder: "Search..." %>
-                <%= f.submit "Search!" %>
+                <%= f.submit "Search!", class: 'btn btn-outline-primary' %>
             <% end %>
+            <div class = 'container'>
+      <table class = 'table'>
+        <thead>
+          <tr>
+            <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
+            <th><%= sort_link(@query, :description, "Description", default_order: :asc) %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= @collections.each do |collection|%>
+            <tr>
+              <td><%= link_to collection.title, collection_path(collection)%></td>
+              <td><%= collection.description.truncate_words(20)%>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
     </div>
 </div>
         
