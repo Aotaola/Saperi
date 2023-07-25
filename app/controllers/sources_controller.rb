@@ -11,6 +11,7 @@ class SourcesController < ApplicationController
     end
     def show 
         @query = Collection.ransack(params[:query])
+        @collections = @query.result(distinct: true)
     end
     def edit
 
