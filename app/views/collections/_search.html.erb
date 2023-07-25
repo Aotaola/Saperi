@@ -1,8 +1,8 @@
-# views/collections/_search_form.html.erb
 
-<%= search_form_for @query do |f| %>
+<div class = 'container-sm'>
+    <%= search_form_for(@query, class:'d-flex') do |f| %>
 
-    <%= f.search_field :title_or_description, placeholder: "Search..." %>
-    <%= f.submit "Search!" %>
+        <%= f.search_field :title_or_description_i_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
+        <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
 
-<% end %>
+    <% end %>

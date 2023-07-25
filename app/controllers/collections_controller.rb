@@ -6,6 +6,7 @@ class CollectionsController < ApplicationController
       @collections = Collection.all
       @collections
       @query = Collection.ransack(params[:query])
+      @collections = @query.result(distinct: true)
    end
    def show
       @forum = @collection.forum

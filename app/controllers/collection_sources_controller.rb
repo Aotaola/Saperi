@@ -4,16 +4,11 @@ class CollectionSourcesController < ApplicationController
     
     def show
     end
-    def search
-      @collections = Collection.where('name LIKE ?', "%#{params[:query]}%")
-      @query = Post.ransack(params[:query])
-    end
     def index
       @collection_sources = CollectionSource.all
       render @collection_sources
     end
-    
-    
+
     def new
         @collection = Collection.find(params[:collection_id])
         @collection_source = CollectionSource.new

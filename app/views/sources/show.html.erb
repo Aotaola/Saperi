@@ -1,4 +1,5 @@
 <div class = 'container-md'>
+
     <div class = "container-sm">
         <%= link_to "Edit", edit_source_path, class: 'btn btn-outline-secondary ' %>
     </div>
@@ -7,9 +8,10 @@
         <p>Link: <%=link_to @source.link, @source.link %> </p> 
     </div>
     <div class = "container-sm font-monospace">
-    <%= render 'collection_sources/new' %>
-    <%= render 'collections/search' %>
+           <%= search_form_for @query do |f| %>
+                <%= f.search_field :title_or_description_cont, placeholder: "Search..." %>
+                <%= f.submit "Search!" %>
+            <% end %>
     </div>
-
 </div>
         

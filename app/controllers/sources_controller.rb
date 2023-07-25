@@ -10,7 +10,7 @@ class SourcesController < ApplicationController
         @source = Source.new
     end
     def show 
-        
+        @query = Collection.ransack(params[:query])
     end
     def edit
 
@@ -27,11 +27,8 @@ class SourcesController < ApplicationController
           flash[:error] = 'Something went wrong'
           render :new
         end
-      end
-      
-    def show 
-        
     end
+      
     def edit
 
     end
