@@ -5,8 +5,8 @@ class CollectionsController < ApplicationController
    def index 
       @collections = Collection.all
       @collections
-      @query = Collection.ransack(params[:query])
-      @collections = @query.result(distinct: true)
+      @query = Collection.ransack(params[:q])
+      @collection = params[:q].blank? ? Collection.none : @query.result(distinct: true)
    end
    def show
       @forum = @collection.forum
