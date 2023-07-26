@@ -4,7 +4,6 @@ class CollectionsController < ApplicationController
 
    def index 
       @collections = Collection.all
-      @collections
       @query = Collection.ransack(params[:q])
       @collection = params[:q].blank? ? Collection.none : @query.result(distinct: true)
    end
@@ -18,7 +17,7 @@ class CollectionsController < ApplicationController
    end
    def update
       if @collection.update(@collection_params)
-         redirect_to @collection, notice: "@#{@collection.title.capitilize} was successfully updated."
+         redirect_to @collection, notice: "@#{@collection.title.capitalize} was successfully updated."
       else
          render :edit
       end
@@ -26,19 +25,19 @@ class CollectionsController < ApplicationController
 
    def destroy
       @collection.destroy
-      redirect_to collections_path, notice: "@#{@collection.title.capitilize} was successfully deleted."
+      redirect_to collections_path, notice: "@#{@collection.title.capitalize} was successfully deleted."
    end
    def new
       @collection = Collection.new
    end
 
    def create
-      @collection = Collection.create(collection_params)
+      @collection = Collection.new(collection_params)
       
          if @collection.save
             redirect_to @collection, notice: "Collection was successfully created"
          else
-            flash[alert:] =  "there was an error creating the collection"
+            flash[:alert] =  "there was an error creating the collection"
             render :new
          end
    end
@@ -50,7 +49,7 @@ class CollectionsController < ApplicationController
       end
    
       def collection_params
-          params.require(:collection).permit(:id, :title, :description, :image)
+          params.require(:collection).permit(:title, :description, :image)
       end
 
 end
