@@ -1,44 +1,37 @@
 
 <div class="container-md">
-    <h1 class="font-monospace">
+  <h1 class="font-monospace">
         Collections
     </h1>
-<br/>
-<div class = 'container-sm'>
-    
-    <%= search_form_for(@query, class:'d-flex') do |f| %>
-
-        <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
-        <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
-
-    <% end %>
-</div>
- <h4><%= pluralize(@collection.count, 'Result')%></h4> 
-    <div class= "container">
-      <table class= "table">
-        <thead> 
-          <tr> 
-             <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th> 
-             <th><%= sort_link(@query, :description, "Description", default_order: :asc) %></th> 
-           </tr> 
-         </thead> 
-         <tbody> 
-           <%= @collections.each do |collection|%> 
-             <tr> 
-               <td><%= link_to collection.title, collection_path(collection)%></td> 
-               <td><%= collection.description.truncate_words(20)%> 
-             </tr> 
-           <%end%> 
-         </tbody> 
-      </table>
-    </div>
     <br/>
-    <div class="container-md"> 
-      <% @collections.each do |collection|%>
-          <h4 class="font-monospace">
-              <%= link_to collection.title, collection_path(collection) %>
-              </h4>
-            <br/>
-       <%end%>
+    <div class = 'container-sm'>
+      
+      <%= search_form_for(@query, class:'d-flex') do |f| %>
+          <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
+          <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
+      <% end %>
+
     </div>
+  <% if @collection.present? %>
+    <h4><%= pluralize(@collection.count, 'Result')%></h4> 
+        <div class= "container">
+          <table class= "table">
+            <% @collection.each do |collection|%> 
+              <tr> 
+                <td><%= link_to collection.title, collection_path(collection)%></td> 
+                <td><%= collection.description.truncate_words(20)%> 
+              </tr> 
+            <%end%>      
+          </table>
+        </div>
+  <%end%>
+        <br/>
+        <div class="container-md"> 
+          <% @collections.each do |collection|%>
+              <h4 class="font-monospace">
+                  <%= link_to collection.title, collection_path(collection) %>
+                  </h4>
+                <br/>
+          <%end%>
+        </div>
 </div>
