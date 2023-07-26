@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :sources do 
-    resources :collection_sources
-  end
+  resources :sources
+  resources :collection_sources
+  
   resources :user_forums, only: [:show, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :forums, only: [:create, :destroy, :show]

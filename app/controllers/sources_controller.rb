@@ -2,16 +2,16 @@ class SourcesController < ApplicationController
     
     before_action :set_source, only: [:show, :edit, :update, :destroy]
  
+    def show 
+        @query = Collection.ransack(params[:q])
+        @collection = params[:q].blank? ? Collection.none : @query.result(distinct: true)
+    end
     def index
         @sources = Source.all
         @sources
     end
     def new
         @source = Source.new
-    end
-    def show 
-        @query = Collection.ransack(params[:query])
-        @collections = @query.result(distinct: true)
     end
     def edit
 
@@ -28,10 +28,6 @@ class SourcesController < ApplicationController
           flash[:error] = 'Something went wrong'
           render :new
         end
-    end
-      
-    def edit
-
     end
     def update
         if @source.update(source_params)

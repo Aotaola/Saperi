@@ -31,15 +31,10 @@
             <%= link_to 'Login', login_path, class: "nav-link"%>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-
-        </form>
         <br/>
         <div class = 'container-fl'>
          <% if current_user.present? %>
-            <%= button_to 'Profile', user_path(@current_user),method: :get, class: " font-monospace btn btn-outline-dark"%>
+            <%= button_to 'Profile', user_path(@current_user),method: :get, class: " font-monospace btn btn-outline-success"%>
             <%end %>
         </div>
       </div>

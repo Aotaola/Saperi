@@ -3,17 +3,16 @@ class CollectionSourcesController < ApplicationController
     before_action :set_source, only: [:create]
     
     def show
+
     end
     def index
       @collection_sources = CollectionSource.all
       render @collection_sources
     end
-
     def new
         @collection = Collection.find(params[:collection_id])
         @collection_source = CollectionSource.new
     end
-    
     def create
         @collection = Collection.find(params[:collection_id])
         @source = Source.find(params[:source_id]) # You'll need to ensure source_id is being passed in the parameters
@@ -27,6 +26,7 @@ class CollectionSourcesController < ApplicationController
     end
     
     def destroy
+      
     end
     
     private
