@@ -5,12 +5,10 @@
     </h1>
     <br/>
     <div class = 'container-sm'>
-      
       <%= search_form_for(@query, class:'d-flex') do |f| %>
           <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
           <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
       <% end %>
-
     </div>
   <% if @collection.present? %>
     <h4><%= pluralize(@collection.count, 'Result')%></h4> 
