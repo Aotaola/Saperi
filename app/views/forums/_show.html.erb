@@ -1,6 +1,6 @@
-<div class = 'container-sm'>
+<div class = 'container-lg'>
 
-  <div class = 'container-sm'>
+  <div class = 'container-md'>
     <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-dark', method: :post %>
   <div class = 'container-sm font-monospaced'>
   </div>
@@ -8,39 +8,25 @@
   <div class = 'container-sm font-monospaced'>
       <% if @users %>
       <table class="table table-dark">
-  <thead>
-    <tr>
-      <th>
-        <p>name</p>
-      </th>
-      <th>
-        <p>description</p>
-      </th>
-      <th>
-        <p>link</p>
-      </th>
-    <tr>
-  </thead>
-      <% @users.each do |user|%>
-  <tbody>
-    <tr class="table-active">
-      <th scope="row">
-        <%= link_to user.name, user_path(user)%>
-      </th>
-    </tr>
-    <tr>
-       <th> 
-          <% user.sources.each do |source| %> 
-       </th>
-      <td colspan="2" class="table-active"> <%= link_to source.description, source_path(source) %> </td>
-    </tr>
-    <tr>
-      <td><%= link_to source.link, source.link %></td>
-    </tr>
-  </tbody>
-</table>
-      <%end%>
-      <%end%>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user|%>
+            <% user.sources.each do |source| %> 
+              <tr class="table-active">
+                <td><%= link_to user.name, user_path(user)%></td>
+                <td><%= link_to source.description, source_path(source) %></td>
+                <td><%= link_to source.link, source.link %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
       <% else %>
       <p>This forum currently has no members.</p>
     <% end %>

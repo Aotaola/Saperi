@@ -1,5 +1,5 @@
 
-<div class="container-md">
+<div class="container-sm">
   <h1 class="font-monospace">
         Collections
     </h1>
@@ -26,10 +26,28 @@
         <br/>
         <div class="container-md"> 
           <% @collections.each do |collection|%>
+          
               <h4 class="font-monospace">
                   <%= link_to collection.title, collection_path(collection) %>
                   </h4>
                 <br/>
           <%end%>
         </div>
+        <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 </div>

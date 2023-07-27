@@ -1,3 +1,14 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
 @import "bootstrap";
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .footer {
+    flex-shrink: 0;
+  }
+  
