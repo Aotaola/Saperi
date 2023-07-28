@@ -13,15 +13,14 @@
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Saperi</a>
+          <a class="navbar-brand" href="/">
+          <%= image_tag("Sapiam_Logo.png", class: "navbar-brand img-fluid" , alt: "Sapiam Logo") %>
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <%= link_to 'About', about_path, class: 'nav-link'%>
-              </li>
               <li class="nav-item">
                 <%= link_to 'Collections', collections_path, class: 'nav-link'%>
               </li>
@@ -39,8 +38,11 @@
       </nav>
       <%= yield %>
       <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-      <span class="text-muted">Place sticky footer content here.</span>
+    <div class="container-sm position-static">
+      <span class="text-muted">built by </span>
+      <a href="https://aotaola.netlify.app/">Alejandro Otaola</a>
+      <a href="https://www.linkedin.com/in/aotaola/"><%= image_tag("Linkedin.png", class: "navbar-brand img-fluid" , alt: "Linkedin Logo") %></a>
+      <a href="https://github.com/Aotaola"><%= image_tag("Github_LOGO.png", class: "navbar-brand img-fluid" , alt: "github Logo") %></a>
     </div>
   </footer>
     </div>

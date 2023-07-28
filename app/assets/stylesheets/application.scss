@@ -2,13 +2,10 @@
 
 @import "bootstrap";
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-  .footer {
-    flex-shrink: 0;
-  }
-  
+.navbar-brand {
+  max-height: 50px; /* adjust as needed */
+}
+.navbar-brand img {
+  height: 100%;
+  width: auto; /* maintain aspect ratio */
+}
