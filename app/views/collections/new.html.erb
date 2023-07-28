@@ -1,15 +1,18 @@
-<div class = 'container-sm font-monospaced'>
-  <h3>create a collection</h3>
-
-  <%= form_with model: @collection do |f| %>
-      <li>
-          <%= f.text_field :title, placeholder: "title"%>
-      </li>
-      <li>
-          <%= f.text_field :description, placeholder: "what is your collection about"%>
-      </li>
-      <li>
-          <%= f.submit %>
-      </li>
-  <%end%>
+<div class='container-sm'>
+    <br/>
+    <div class='container-sm'>
+        <h3>Create a new collection</h3>
+    </div class='container-sm'>
+    <br/>
+    <%= form_with model: @collection, html: { class: 'border p-3 rounded' } do |f| %>
+        <div class="form-group container-sm">
+            <%= f.text_field :title, class: 'form-control outline-primary', placeholder: "title" %>
+        </div>
+        <div class="form-group mt-3 container-sm">
+            <%= f.text_area :description, class: 'form-control outline-primary', placeholder: "what is your collection about" %>
+        </div>
+        <div class="form-group mt-3 container-sm">
+            <%= f.submit class: 'btn btn-primary' %>
+        </div>
+    <% end %>
 </div>

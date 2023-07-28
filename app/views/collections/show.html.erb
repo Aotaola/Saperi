@@ -1,13 +1,13 @@
 <div class="container-md">
     <%= button_to 'Add', collection_user_collections_path(@collection), class: 'btn btn-outline-dark', method: :post %>
-    <h1 class="font-monospace">
+    <h1 class="">
        <%= @collection.title %> 
     </h1> 
-    <h3 class="font-monospace">
+    <h3 class="">
         <%= @collection.description%>
     </h3>
     <br/>
 </div>
-<div class = 'container-sm font-monospaced'>
+<div class = 'container-sm '>
      <%= render partial: 'forums/show', locals: {forum: @forum} %>  
 </div>

@@ -1,20 +1,18 @@
-<div class = "container-md">
-    <h1 class ="font-monospace">Login<h1>
+<div class="container-md">
+    <h1 class="">Login</h1>
 
-        <%= form_with(scope: :session, url: login_path) do |f| %>
-        <ul class ="font-monospace">
-
-            <li >
-                <%= f.email_field :email, placeholder: "your account email"%>
-            </li >
-            <li >
-                <%= f.password_field :password, placeholder: "your password"%>
-            </li>
-            <li >
-                <%= f.submit "Login" %>
-            </li>
-            
-        </ul>
-   <% end %>
-   <%=link_to "Signup", new_user_path%>
+    <%= form_with(scope: :session, url: login_path, local: true, html: { class: "px-4 py-3" }) do |f| %>
+        <div class="mb-3">
+            <%= f.label :email, "Email address", class: "form-label" %>
+            <%= f.email_field :email, class: "form-control", placeholder: "your account email" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :password, "Password", class: "form-label" %>
+            <%= f.password_field :password, class: "form-control", placeholder: "your password" %>
+        </div>
+        
+        <%= f.submit "Sign in", class: "btn btn-secondary" %>
+    <% end %>
+    <div class="dropdown-divider"></div>
+    <%= link_to "New around here? Sign up", new_user_path, class: "btn btn-outline-primary" %>
 </div>

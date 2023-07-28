@@ -9,3 +9,20 @@
   height: 100%;
   width: auto; /* maintain aspect ratio */
 }
+.nav_item:hover {
+  color: skyblue; 
+}
+.nav-link-color:active {
+  color: blue
+}
+.outline-primary {
+  border: 1px solid darkgrey;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.outline-primary:focus {
+  border-color: skyblue;
+  box-shadow: 0 0 0 0.2rem rgba(135,206,235,.5);
+}
+
+

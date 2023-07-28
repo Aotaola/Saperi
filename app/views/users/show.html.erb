@@ -1,36 +1,41 @@
 
-<div class='container-md font-monospace'>
-    <h2><%= @user.name %></h2>
-    <%=@user.bio%>
-    <div class='container-md'>  
-        <%= link_to 'Create source', new_source_path, class: 'btn btn-outline-primary' %> 
+<div class='container-md '>
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title"><%= @user.name %></h2>
+            <p class="card-text"><%= @user.bio %></p>
+        </div>
     </div>
-    <div class='container-md'>
-    <p>my sources<p>
-    <% if @sources %>
-        <% @sources.each do |source| %>
-            <div class = 'container-sm'>
-                <p> Description: <%= link_to source.description, source_path(source) %>  </p>
-                <p> Link: <%= link_to source.link, source.link %> </p> 
-                 <br/>
-            </div>
-        <%end%>
-    <%end%>
+
+    <div class='mt-4'>
+        <h4>My Sources</h4>
+        <% if @sources %>
+            <% @sources.each do |source| %>
+                <div class='card mt-2'>
+                    <div class='card-body'>
+                        <p>Description: <%= link_to source.description, source_path(source) %></p>
+                        <p>Link: <%= link_to source.link, source.link %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
     </div>
-    <div class='container-md'>
-        <%= link_to 'Create Collection', new_collection_path, class: 'btn btn-outline-primary' %>
-        <p>my collections<p>
-    <% if @collections %>
-        <% @collections.each do |collection| %>
-            <div class = 'container-sm'>
-                <%=link_to "#{collection.title}", collection_path(collection)%>
-                 <br/>
-            </div>
-        <%end%>
-    <%end%>
+
+    <div class='mt-4'>
+        <h4>My Collections</h4>
+        <% if @collections %>
+            <% @collections.each do |collection| %>
+                <div class='card mt-2'>
+                    <div class='card-body'>
+                        <%= link_to collection.title, collection_path(collection) %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
     </div>
-    <div class='container-md'>
-        <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary'%>
+
+    <div class='mt-4'>
+        <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary' %>
         <%= button_to "Sign Out", signout_path, class: 'btn btn-outline-danger', method: :delete %>
     </div>
 </div>

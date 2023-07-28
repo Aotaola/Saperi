@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
@@ -27,16 +27,25 @@
               <li class="nav-item">
                 <%= link_to 'Login', login_path, class: "nav-link"%>
               </li>
-            </ul>
+              <li>
+              <%= link_to 'New Collection', new_collection_path, class: 'nav-link' %>
+              </li>
             <% if current_user.present? %>
+              <li>
+              <%= link_to 'New source', new_source_path, class: 'nav-link' %> 
+              </li>
+            </ul>
               <div class="d-flex">
-                <%= button_to 'Profile', user_path(@current_user), method: :get, class: "font-monospace btn btn-outline-success"%>
+                <%= button_to 'Profile', user_path(@current_user), method: :get, class: "font-monospace btn btn-outline-primary"%>
               </div>
             <%end %>
           </div>
         </div>
       </nav>
       <%= yield %>
+    </div>
+  </body>
+</html>
       <footer class="footer mt-auto py-3 bg-light">
     <div class="container-sm position-static">
       <span class="text-muted">built by </span>
@@ -45,6 +54,3 @@
       <a href="https://github.com/Aotaola"><%= image_tag("Github_LOGO.png", class: "navbar-brand img-fluid" , alt: "github Logo") %></a>
     </div>
   </footer>
-    </div>
-  </body>
-</html>
