@@ -21,6 +21,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li>
+                <%= link_to 'About', about_path, class: 'nav-link'%>
+              </li>
               <li class="nav-item">
                 <%= link_to 'Collections', collections_path, class: 'nav-link'%>
               </li>
@@ -45,21 +48,27 @@
       <%= yield %>
     </div>
     
+    
   </body>
 <br/>
 </html>
 <footer class="footer mt-auto py-3 bg-light">
-    <div class="container-sm d-flex justify-content-center">
-        <span class="text-muted">Built by </span>
-        <a href="https://aotaola.netlify.app/">Alejandro Otaola</a>
-    </div>
-    <div class="container-sm d-flex justify-content-center">
-        <a href="https://www.linkedin.com/in/aotaola/">
-            <%= image_tag("Linkedin.png", class: "navbar-brand img-fluid", alt: "Linkedin Logo") %>
-        </a>
-        <a href="https://github.com/Aotaola">
-            <%= image_tag("Github_LOGO.png", class: "navbar-brand img-fluid", alt: "github Logo") %>
-        </a>
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <div class="text-center">
+            <a href="https://www.linkedin.com/in/aotaola/">
+                <%= image_tag("Linkedin.png", class: "navbar-brand img-fluid", alt: "Linkedin Logo") %>
+            </a>
+        </div>
+        <div class="text-center text-md-left">
+            <span class="text-muted">Built by </span>
+            <a href="https://aotaola.netlify.app/">Alejandro Otaola</a>
+        </div>
+        <div class="text-center">
+            <a href="https://github.com/Aotaola">
+                <%= image_tag("Github_LOGO.png", class: "navbar-brand img-fluid", alt: "Github Logo") %>
+            </a>
+        </div>
     </div>
 </footer>
+
 
