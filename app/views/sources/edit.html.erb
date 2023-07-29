@@ -1,13 +1,20 @@
-<h1>Here are all the sources</h1>
-<%= form_with model: @source do |f|%>
-
-    <li>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </li>
-     <li>
-        <%= f.label :link %>
-        <%= f.text_area :link %>
-    </li>
-    <%= f.submit "update"%>
-<%end%>
+<div class='container-sm'>
+    <br/>
+    <div class='container-sm'>
+        <h1>Here are all the sources</h1>
+    </div>
+    <br/>
+    <%= form_with model: @source, html: { class: 'border p-3 rounded bg-dark text-white' } do |f| %>
+        <div class="form-group container-sm">
+            <%= f.label :description, class: 'form-label' %>
+            <%= f.text_area :description, class: 'form-control', placeholder: "description" %>
+        </div>
+        <div class="form-group mt-3 container-sm">
+            <%= f.label :link, class: 'form-label' %>
+            <%= f.text_area :link, class: 'form-control', placeholder: "link" %>
+        </div>
+        <div class="form-group mt-3 container-sm">
+            <%= f.submit "Update", class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>

@@ -3,10 +3,11 @@ class CollectionsController < ApplicationController
    before_action :set_collection, only: [:show, :edit, :update]
 
    def index 
-      @collections = Collection.all
       @query = Collection.ransack(params[:q])
-      @collection = params[:q].blank? ? Collection.none : @query.result(distinct: true)
+      @col = params[:q].blank? ? Collection.none : @query.result(distinct: true)
+      @collections = Collection.paginate(page: params[:page], per_page: 10)
    end
+    
    def show
       @forum = @collection.forum
       @users = @collection.users.includes(:sources)

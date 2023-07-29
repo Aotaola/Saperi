@@ -24,5 +24,48 @@
   border-color: skyblue;
   box-shadow: 0 0 0 0.2rem rgba(135,206,235,.5);
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content-container {
+  flex-grow: 1;
+}
+
+.pagination a, .pagination span, .pagination em {
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  margin-right: 0.2em;
+  color: #333;
+}
+
+.pagination .current {
+  background: #2e6da4;
+  color: #fff;
+  border: 1px solid #2e6da4;
+}
+
+.pagination a:hover, .pagination a:focus {
+  background: #2e6da4;
+  color: #fff;
+  border: 1px solid #2e6da4;
+}
+
+.pagination .disabled {
+  color: #aaa;
+}
+
 
 

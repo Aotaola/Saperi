@@ -27,10 +27,10 @@
               <li class="nav-item">
                 <%= link_to 'Login', login_path, class: "nav-link"%>
               </li>
+            <% if current_user.present? %>
               <li>
               <%= link_to 'New Collection', new_collection_path, class: 'nav-link' %>
               </li>
-            <% if current_user.present? %>
               <li>
               <%= link_to 'New source', new_source_path, class: 'nav-link' %> 
               </li>
@@ -44,13 +44,22 @@
       </nav>
       <%= yield %>
     </div>
+    
   </body>
+<br/>
 </html>
-      <footer class="footer mt-auto py-3 bg-light">
-    <div class="container-sm position-static">
-      <span class="text-muted">built by </span>
-      <a href="https://aotaola.netlify.app/">Alejandro Otaola</a>
-      <a href="https://www.linkedin.com/in/aotaola/"><%= image_tag("Linkedin.png", class: "navbar-brand img-fluid" , alt: "Linkedin Logo") %></a>
-      <a href="https://github.com/Aotaola"><%= image_tag("Github_LOGO.png", class: "navbar-brand img-fluid" , alt: "github Logo") %></a>
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container-sm d-flex justify-content-center">
+        <span class="text-muted">Built by </span>
+        <a href="https://aotaola.netlify.app/">Alejandro Otaola</a>
     </div>
-  </footer>
+    <div class="container-sm d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/aotaola/">
+            <%= image_tag("Linkedin.png", class: "navbar-brand img-fluid", alt: "Linkedin Logo") %>
+        </a>
+        <a href="https://github.com/Aotaola">
+            <%= image_tag("Github_LOGO.png", class: "navbar-brand img-fluid", alt: "github Logo") %>
+        </a>
+    </div>
+</footer>
+

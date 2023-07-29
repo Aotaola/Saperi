@@ -4,7 +4,7 @@ class ForumsController < ApplicationController
     def show
         @users = @forum.users.includes(:sources)
         @sources = @forum.sources
-        
+        @collection_sources = @forum.collection_sources
     end
 
     def create

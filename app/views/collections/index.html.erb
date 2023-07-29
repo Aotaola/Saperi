@@ -1,53 +1,44 @@
 
 <div class="container-sm">
   <h1 class="">
-        Collections
-    </h1>
-    <br/>
-    <div class = 'container-sm'>
-      <%= search_form_for(@query, class:'d-flex') do |f| %>
-          <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
-          <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
-      <% end %>
-    </div>
-  <% if @collection.present? %>
-    <h4><%= pluralize(@collection.count, 'Result')%></h4> 
-        <div class= "container">
-          <table class= "table">
-            <% @collection.each do |collection|%> 
-              <tr> 
-                <td><%= link_to collection.title, collection_path(collection)%></td> 
-                <td><%= collection.description.truncate_words(20)%> 
-              </tr> 
-            <%end%>      
-          </table>
-        </div>
-  <%end%>
+   All Collections
+  </h1>
+  <br/>
+  <div class = 'container-sm'>
+    <%= search_form_for(@query, class:'d-flex') do |f| %>
+      <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
+      <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
+    <% end %>
+  </div>
+  <% if @col.present? %>
+    <h4><%= pluralize(@col.count, 'Result')%></h4> 
+    <div class="container-md"> 
+      <% @col.each do |collection|%>
+        <h4 class="">
+          <%= link_to collection.title, collection_path(collection) %>
+        </h4>
         <br/>
-        <div class="container-md"> 
-          <% @collections.each do |collection|%>
-          
-              <h4 class="">
-                  <%= link_to collection.title, collection_path(collection) %>
-                  </h4>
-                <br/>
-          <%end%>
-        </div>
-        <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+      <%end%>
+    </div>
+  <%end%>
+    <% @collections.each do |collection|%>
+      
+        <h4>
+         <%= link_to collection.title, collection_path(collection) %>
+        </h4>
+      
+      <br/>
+    <%end%>
+  <div>
+  <br/>
+  <%= will_paginate @collections, 
+      class: 'pagination', 
+      previous_label: 'Previous', 
+      next_label: 'Next', 
+      inner_window: 5, 
+      outer_window: 1,  
+      page_links: true, 
+      params: { controller: 'collections', action: 'index' } %>
+</div>
+
 </div>

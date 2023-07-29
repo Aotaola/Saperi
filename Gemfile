@@ -78,3 +78,6 @@ group :test do
 end
 
 gem "ransack", "~> 4.0"
+
+gem 'will_paginate', '~> 3.3.0'
+

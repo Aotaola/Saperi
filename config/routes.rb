@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :sources
-  resources :collection_sources
-  
+  resources :collection_sources, only: [:show, :create, :new]
   resources :user_forums, only: [:show, :create, :destroy]
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :forums, only: [:create, :destroy, :show]
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
+  delete '/remove', to: 'collection_sources#destroy'  
   
 
 end

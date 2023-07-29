@@ -1,13 +1,9 @@
 class CollectionSourcesController < ApplicationController
-    before_action :set_collection, only: [:show, :destroy, :create, :new]
+    before_action :set_collection, only: [ :destroy, :create, :new]
     before_action :set_source, only: [:create]
-    
+    before_action :set_collection_source, only: [ :destroy, :new, :create, :show]
     def show
-
-    end
-    def index
-      @collection_sources = CollectionSource.all
-      render @collection_sources
+      @collection_source = CollectionSource.find(params[:id])
     end
     def new
         @collection = Collection.find(params[:collection_id])
@@ -26,7 +22,15 @@ class CollectionSourcesController < ApplicationController
     end
     
     def destroy
+      @collection_source = CollectionSource.find(params[:id])
       
+     if @collection_source.destroy
+        redirect_back(fallback_location: root_path,
+        notice: 'Source was successfully removed from collection.')
+      else 
+        flash[:alert] = 'there was an error',
+        redirect_back(fallback_location: root_path)
+      end
     end
     
     private
@@ -34,9 +38,10 @@ class CollectionSourcesController < ApplicationController
     def set_collection
       @collection = Collection.find(params[:collection_id])
     end
-    
     def set_source
       @source = Source.find(params[:source_id]) 
     end
+    
+
 end
   
