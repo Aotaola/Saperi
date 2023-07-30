@@ -1,11 +1,13 @@
 <div class = 'container-lg'>
 
   <div class = 'container-md'>
+    <% if @user.present? %>
     <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-light', method: :post %>
-  <div class = 'container-sm font-monospaced'>
+    <%end%>
+  <div class = 'container-sm '>
   </div>
 
-  <div class = 'container-sm font-monospaced'>
+  <div class = 'container-sm '>
       <% if @users %>
       <table class="table table-light-striped">
         <thead>

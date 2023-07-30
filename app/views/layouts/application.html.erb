@@ -10,72 +10,39 @@
     <%= javascript_importmap_tags %>
     <head>
   <style>
-    .circle {
-      width: 100px;
-      height: 100px;
-      background-color: darkgrey;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .circle1 {
-      animation: pulse1 2s infinite;
-      background-color: blue;
-      top: 40%;
-      right: 50%
-    }
-
-    .circle2 {
-      animation: pulse2 3s infinite;
-      bottom: 20%;
-      right: 80%;
-      background-color: green;
-    }
-
-    .circle3 {
-      animation: pulse3 3.4s infinite;
-      background-color: red;
-    }
-    .circle4 {
-      animation: pulse4 2.8s infinite;
-      background-color: white;
-    }
 
     @keyframes pulse1 {
       0%, 100% {
-        transform: translate( -100%, -50%) scale(.5);
+        transform: translate( -100%, -0%) scale(.2);
       }
       50% {
-        transform: translate( 100%, 50%) scale(1.2);
+        transform: translate( 100%, 0%) scale(1);
       }
     }
 
     @keyframes pulse2 {
       0%, 100% {
-        transform: translate(-50%, -100%) scale(1);
+        transform: translate(-0%, -100%) scale(1);
       }
       50% {
-        transform: translate(-100%, 50%) scale(.2);
+        transform: translate(-100%, 0%) scale(.2);
       }
     }
 
     @keyframes pulse3 {
       0%, 100% {
-        transform: translate(100%, -100%) scale(.4);
+        transform: translate(00%, -100%) scale(1);
       }
       50% {
-        transform: translate( 100%, 50%) scale(1);
+        transform: translate( 100%, 50%) scale(.2);
       }
     }
      @keyframes pulse4 {
       0%, 100% {
-        transform: translate( -50%, 50%) scale(1);
+        transform: translate( -0%, 50%) scale(1);
       }
       50% {
-        transform: translate( 50%, -50%) scale(.8);
+        transform: translate( 50%, -0%) scale(.1);
       }
     }
   </style>

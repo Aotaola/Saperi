@@ -1,8 +1,10 @@
 
 <div class="container-sm">
-  <h1 class="">
-   All Collections
-  </h1>
+<div class="jumbotron">
+  <h1 class="display-4">Collections</h1>
+ 
+  <div class="collection_circle"></div>
+ <hr class="my-4">
   <br/>
   <div class = 'container-sm'>
     <%= search_form_for(@query, class:'d-flex') do |f| %>
@@ -21,13 +23,13 @@
       <%end%>
     </div>
   <%end%>
+  <br/>
     <% @collections.each do |collection|%>
       
         <h4>
          <%= link_to collection.title, collection_path(collection) %>
         </h4>
         <p><%= collection.description %></p>
-      
       <br/>
     <%end%>
   <div>
