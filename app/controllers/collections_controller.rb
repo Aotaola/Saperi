@@ -23,6 +23,7 @@ class CollectionsController < ApplicationController
       if @collection.update(@collection_params)
          redirect_to @collection, notice: "@#{@collection.title.capitalize} was successfully updated."
       else
+
          render :edit
       end
    end
@@ -37,11 +38,11 @@ class CollectionsController < ApplicationController
 
    def create
       @collection = Collection.new(collection_params)
-      
+      @collection.user_id = current_user.id
          if @collection.save
             redirect_to @collection, notice: "Collection was successfully created"
          else
-            flash[:alert] =  "there was an error creating the collection"
+            render_errors(@collection)
             render :new
          end
    end
@@ -53,7 +54,7 @@ class CollectionsController < ApplicationController
       end
    
       def collection_params
-          params.require(:collection).permit(:title, :description, :image)
+          params.require(:collection).permit(:title, :description, :image, :user_id)
       end
 
 end

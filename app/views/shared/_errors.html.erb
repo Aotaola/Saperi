@@ -1,17 +1,18 @@
-<div class = "container">
-    <% if @article.errors.any? %>
-            <div>
-                <h2> mistakes were made when creating this resource </h2>
-        <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show"  role="alert">
-            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="container">
+    <% if @collection.errors.any? %>
+        <div>
+            <h2> Mistakes were made when creating this resource </h2>
+            <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <ul>
-                <% @article.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
+                    <% @collection.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
                     <% end %>
                 </ul>
             </div>
         </div>
     </div>
-        <% end %>
+    <% end %>
 </div>
+

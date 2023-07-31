@@ -6,5 +6,5 @@ class Source < ApplicationRecord
   has_many :collections, through: :collection_sources 
   
   validates :user, presence: true
-  # validates :link, presence: true, format: { with: /\A#{URI::DEFAULT_PARSER.make_regexp(['http', 'https'])}\z/, message: "must be a valid URL" }
+  validates :link, presence: true, format: { with: /\A#{URI::DEFAULT_PARSER.make_regexp(['http', 'https'])}\z/, message: "must be a valid URL" }
 end

@@ -1,47 +1,47 @@
 
 <div class="container-sm">
-<div class="jumbotron">
-  <h1 class="display-4">Collections</h1>
- 
-  <div class="collection_circle"></div>
- <hr class="my-4">
   <br/>
-  <div class = 'container-sm'>
-    <%= search_form_for(@query, class:'d-flex') do |f| %>
-      <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
-      <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
-    <% end %>
-  </div>
-  <% if @col.present? %>
-    <h4><%= pluralize(@col.count, 'Result')%></h4> 
-    <div class="container-md"> 
-      <% @col.each do |collection|%>
-        <h4 class="">
+  <div class="jumbotron">
+      <h1 >Collections</h1>
+      <div class="collection_circle"></div>
+    <hr class="my-4">
+      <br/>
+      <div class = 'container-sm'>
+        <%= search_form_for(@query, class:'d-flex') do |f| %>
+          <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
+          <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
+        <% end %>
+    </div>
+    <% if @col.present? %>
+      <h4><%= pluralize(@col.count, 'Result')%></h4> 
+      <div class="container-md"> 
+        <% @col.each do |collection|%>
+          <h4 class="">
+            <%= link_to collection.title, collection_path(collection) %>
+          </h4>
+          <br/>
+        <%end%>
+      </div>
+    <%end%>
+    <br/>
+      <% @collections.each do |collection|%>
+        
+          <h4>
           <%= link_to collection.title, collection_path(collection) %>
-        </h4>
+          </h4>
+          <p><%= collection.description %></p>
         <br/>
       <%end%>
-    </div>
-  <%end%>
-  <br/>
-    <% @collections.each do |collection|%>
-      
-        <h4>
-         <%= link_to collection.title, collection_path(collection) %>
-        </h4>
-        <p><%= collection.description %></p>
-      <br/>
-    <%end%>
-  <div>
-  <br/>
-  <%= will_paginate @collections, 
-      class: 'pagination', 
-      previous_label: 'Previous', 
-      next_label: 'Next', 
-      inner_window: 5, 
-      outer_window: 1,  
-      page_links: true, 
-      params: { controller: 'collections', action: 'index' } %>
-</div>
+    <div>
+    <br/>
+    <%= will_paginate @collections, 
+        class: 'pagination', 
+        previous_label: 'Previous', 
+        next_label: 'Next', 
+        inner_window: 5, 
+        outer_window: 1,  
+        page_links: true, 
+        params: { controller: 'collections', action: 'index' } %>
+  </div>
 
 </div>

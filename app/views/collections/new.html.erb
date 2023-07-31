@@ -1,6 +1,7 @@
 <html>
     <head>
         <div class = container-sm>
+        <br/>
             <div class='jumbotron'>
                     <h1>Create a new collection</h1>
                     <hr class="my-4">
@@ -9,6 +10,7 @@
     </head>
     <body id='new-collection'>   
         <div class='container-sm'> 
+            <%= render 'shared/errors' %>
             <%= form_with model: @collection, html: { class: 'border p-3 rounded' } do |f| %>
                 <div class="form-group container-sm">
                     <%= f.text_field :title, class: 'form-control outline-primary', placeholder: "title" %>

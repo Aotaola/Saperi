@@ -12,7 +12,6 @@
               <th>Name</th>
               <th>Description</th>
               <th>Link</th>
-              <th>id</th>
               <th>Actions</th>
 
             </tr>
@@ -26,7 +25,6 @@
                 <td><%= link_to user.name, user_path(user) %></td>
                 <td><%= link_to source.description, source_path(source) %></td>
                 <td><%= link_to source.link, source.link %></td>
-                <td><%= id %></td>
                 <td>
                   <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
                     <%= form.hidden_field :id, value: collection_source.id %>
@@ -38,7 +36,7 @@
           </tbody>
         </table>
       <% else %>
-        <p>This forum currently has no members.</p>
+        <p>This forum currently has no posted sources.</p>
       <% end %>
     </div>
   </div>

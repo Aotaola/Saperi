@@ -15,7 +15,7 @@
         </div>
         </header>
         <div class='container-sm '>
-            <table class='table table-light table-striped '>
+            <table class='table table-dark table-striped '>
                 <h4>My Sources</h4>
                 <thead>
                     <tr>
@@ -30,16 +30,16 @@
                         <tr>
                             <th><%= link_to source.description, source_path(source) %></th>
                             <th><%= link_to source.link, source.link %></th>
-                            <th><%= link_to 'Edit', edit_source_path(source), class: 'btn btn-outline-secondary'%>
+                            <th><%= link_to '//', edit_source_path(source), class: 'btn btn-outline-secondary'%>
                         </tr>
+                <tbody>
                         <% end %>
                     <% end %>
-                <tbody>
             </table>
             
                 <h4>My Collections</h4>
                 <% if @collections %>
-                    <table class="table table-light table-striped">
+                    <table class='table table-dark table-striped'>
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -50,20 +50,35 @@
                         <tbody>
                         <% @collections.each do |collection| %>
                             <tr>
-                                <td> <%= link_to collection.title, collection_path(collection) %></td>
-                                <td> <%= collection.description%></td>
+                                <th> <%= link_to collection.title, collection_path(collection) %></th>
+                                <th> <%= collection.description%></td>
                                     <% user_collection = collection.user_collections.find_by(user: @user) %>
-                                <td><%= button_to "X", collection_user_collection_path(collection.id, user_collection.id), method: :delete, class: "btn btn-outline-secondary"  %></td> 
+                                <th><%= button_to "X", collection_user_collection_path(collection.id, user_collection.id), method: :delete, class: "btn btn-outline-secondary"  %></th> 
                             <tr>
                         </tbody>
                     <% end %>
                 <% end %>
                     </table>
             
-            <div class='mt-4'>
-                <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary' %>
-                <%= button_to "Sign Out", signout_path, class: 'btn btn-outline-danger', method: :delete %>
-            </div>
+            <table class="table table-dark table-striped">
+                <thead>
+                 <tr>
+                    <th>*</th>
+                    <th>Edit profile</th>
+                    <th> </th>
+                    <th>Signout</th>
+                </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <th>*</th>
+                        <th> <%= link_to "//", edit_user_path, class: 'btn btn-outline-primary' %></th>
+                        <%# <th>Sapiam</th> %>
+                        <th></th>
+                        <th><%= button_to "!!!", signout_path, class: 'btn btn-outline-danger', method: :delete %></th>
+                    <tr>
+                <tbody>
+            </table>
             
         </div>
     <body>
