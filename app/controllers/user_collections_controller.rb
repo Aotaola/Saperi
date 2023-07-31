@@ -1,6 +1,6 @@
 class UserCollectionsController < ApplicationController
     before_action :set_collection, only: [:show,  :destroy, :create, :new]
-    before_action :set_user_collection, only: [:create, :show, :index, :destroy]
+    before_action :set_user_collection, only: [:create, :show, :index]
 
 
     def show
@@ -25,7 +25,15 @@ class UserCollectionsController < ApplicationController
 
     end
     def destroy
-
+        @user_collection = UserCollection.find(params[:id])
+            if @user_collection.destroy
+                flash[:notice] = "Successfully removed association."
+                Rails.logger.info "Successfully destroyed UserCollection #{@user_collection.id}"
+            else 
+                flash[:alert] = "Failed to remove association."
+                Rails.logger.warn "Failed to destroy UserCollection #{@user_collection.id}"
+            end
+        redirect_back(fallback_location: root_path)
     end
 
     private

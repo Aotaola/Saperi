@@ -1,7 +1,6 @@
 class CollectionSourcesController < ApplicationController
     before_action :set_collection, only: [ :destroy, :create, :new]
     before_action :set_source, only: [:create]
-    before_action :set_collection_source, only: [ :destroy, :new, :create, :show]
     def show
       @collection_source = CollectionSource.find(params[:id])
     end

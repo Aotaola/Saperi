@@ -1,33 +1,38 @@
-<div class = 'container-md'>
-    <div class = "container-sm">
-      <%= link_to "Edit", edit_source_path, class: 'btn btn-outline-danger ' %>
+<html>
+  <head>
+  <br/>
+    <div class='jumbotron'>
+        <div class="container-sm">
+           <%= link_to "Edit", edit_source_path, class: 'btn btn-outline-danger justify-content-end' %>
+            <h3> Description: <%= @source.description %>  </h3>
+            <h4>Link: <%=link_to @source.link, @source.link %> </h4> 
+            <hr class="my-4">
+        </div>
     </div>
-    <div class = "container-sm font-monospace">
-      <h3> Description: <%= @source.description %>  </h3>
-      <h4>Link: <%=link_to @source.link, @source.link %> </h4> 
-    </div>
-    <div class = "container-sm font-monospace">
-      <div class = 'container-sm'>
-      
-      <%= search_form_for(@query, url: source_path(@source),class:'d-flex') do |f| %>
-          <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
-          <%= f.submit "Search!" , class: 'btn btn-outline-success'%>
-      <% end %>
-    </div>
-    <% if @collection.present? %>
-      <p><%= pluralize(@collection.count, 'Result')%></p> 
-          <div>
-            <table class= "table">
-              <% @collection.each do |collection|%> 
-                <tr> 
-                  <td><%= link_to collection.title, collection_path(collection)%></td> 
-                  <td><%= collection.description.truncate_words(20)%> </td>
-                  <td><%= button_to 'add source', collection_sources_path(collection_id: collection.id, source_id: @source), turbo_stream_method: :post, class: 'btn btn-outline-success'%>
-                </tr> 
-              <%end%>      
-            </table>
-          </div>
-    <%end%>
-    </div>
-</div>
-        
+  <head>
+  <br/>
+  <body>
+        <div class = 'container-sm'>
+          <%= search_form_for(@query, url: source_path(@source),class:'d-flex') do |f| %>
+              <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
+              <%= f.submit "Search!" , class: 'btn btn-outline-success'%>
+          <% end %>
+        </div>
+        <% if @collection.present? %>
+          <p><%= pluralize(@collection.count, 'Result')%></p> 
+              <div>
+                <table class= "table">
+                  <% @collection.each do |collection|%> 
+                    <tr> 
+                      <td><%= link_to collection.title, collection_path(collection)%></td> 
+                      <td><%= collection.description.truncate_words(20)%> </td>
+                      <td><%= button_to 'add source', collection_sources_path(collection_id: collection.id, source_id: @source), turbo_stream_method: :post, class: 'btn btn-outline-success'%>
+                    </tr> 
+                  <%end%>      
+                </table>
+              </div>
+        <%end%>
+        </div>
+  <body>
+<html>
+          

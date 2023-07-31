@@ -1,18 +1,31 @@
-<div class='container-sm'>
-    <br/>
-    <div class='container-sm'>
-        <h3>Create a new collection</h3>
-    </div class='container-sm'>
-    <br/>
-    <%= form_with model: @collection, html: { class: 'border p-3 rounded' } do |f| %>
-        <div class="form-group container-sm">
-            <%= f.text_field :title, class: 'form-control outline-primary', placeholder: "title" %>
+<html>
+    <head>
+        <div class = container-sm>
+            <div class='jumbotron'>
+                    <h1>Create a new collection</h1>
+                    <hr class="my-4">
+            </div>
         </div>
-        <div class="form-group mt-3 container-sm">
-            <%= f.text_area :description, class: 'form-control outline-primary', placeholder: "what is your collection about" %>
+    </head>
+    <body id='new-collection'>   
+        <div class='container-sm'> 
+            <%= form_with model: @collection, html: { class: 'border p-3 rounded' } do |f| %>
+                <div class="form-group container-sm">
+                    <%= f.text_field :title, class: 'form-control outline-primary', placeholder: "title" %>
+                </div>
+                <div class="form-group mt-3 container-sm">
+                    <%= f.text_area :description, class: 'form-control outline-primary', placeholder: "what is your collection about" %>
+                </div>
+                <div class="form-group mt-3 container-sm">
+                    <%= f.submit class: 'btn btn-primary' %>
+                </div>
+            <% end %>
         </div>
-        <div class="form-group mt-3 container-sm">
-            <%= f.submit class: 'btn btn-primary' %>
+          </div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+            <div class="circle circle4"></div>
+            <div class="circle circle1"></div>
         </div>
-    <% end %>
-</div>
+    </body>
+<html>

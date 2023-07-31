@@ -1,20 +1,35 @@
-<div class='container-sm'>
-    <br/>
-    <div class='container-sm'>
-        <h3>Create a new source</h3>
-    </div>
-    <br/>
-    <%= form_with model: @source, html: { class: 'border p-3 rounded bg-dark text-white' } do |f| %>
-        <div class="form-group container-sm">
-            <%= f.label :link, class: 'form-label' %>
-            <%= f.text_field :link, class: 'form-control', placeholder: "link" %>
+<html>
+    <head>
+        <div class='container-sm'>
+            <br/>
+            <div class='jumbotron'>
+                <h3>Create a new source</h3>
+            </div>
+        <hr class="my-4">
         </div>
-        <div class="form-group mt-3 container-sm">
-            <%= f.label :description, class: 'form-label' %>
-            <%= f.text_field :description, class: 'form-control', placeholder: "description" %>
+    </head>
+    <body id='new-source'>
+        <div class='container-sm'>
+            <br/>
+            <%= form_with model: @source, html: { class: 'border p-3 rounded bg-dark text-white' } do |f| %>
+                <div class="form-group mt-3 container-sm">
+                    <%= f.label :description, class: 'form-label' %>
+                    <%= f.text_field :description, class: 'form-control', placeholder: "description" %>
+                </div>
+                <div class="form-group container-sm">
+                    <%= f.label :link, class: 'form-label' %>
+                    <%= f.text_field :link, class: 'form-control', placeholder: "link" %>
+                </div>
+                <div class="form-group mt-3 container-sm">
+                    <%= f.submit "Create", class: 'btn btn-primary' %>
+                </div>
+            <% end %>
         </div>
-        <div class="form-group mt-3 container-sm">
-            <%= f.submit "Create", class: 'btn btn-primary' %>
+         </div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+            <div class="circle circle4"></div>
+            <div class="circle circle1"></div>
         </div>
-    <% end %>
-</div>
+    </body>
+<html>

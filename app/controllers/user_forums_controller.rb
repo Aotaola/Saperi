@@ -5,8 +5,6 @@ class UserForumsController < ApplicationController
     def show
     end
     def index
-        @user_forums = UserForum.all
-        render json: @user_forums
     end
     def new
 

@@ -8,7 +8,7 @@
   </div>
 
   <div class = 'container-sm '>
-      <% if @users %>
+    <% if @collection_sources.present? %>
       <table class="table table-light-striped">
         <thead>
           <tr>
@@ -18,21 +18,20 @@
           </tr>
         </thead>
         <tbody>
-          <% @users.each do |user|%>
-            <% user.sources.each do |source| %> 
-              <% source.collection_sources.each do |collection_source|%>
-              <tr class="table-active">
-                <td><%= link_to user.name, user_path(user)%></td>
-                <td><%= link_to source.description, source_path(source) %></td>
-                <td><%= link_to source.link, source.link %></td>
-                <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
-                       <%= form.hidden_field :id, value: collection_source.id %>
-                  <td> <%= form.submit 'x', class: 'btn btn-link p-0 m-0 align-baseline' %> </td>
-                 <% end %>
-              </tr>
-              <%end%>
+          <% @collection_sources.each do |collection_source|%>
+          <% user = collection_source.source.user %>
+          <% source = collection_source.source %>
+          <tr class="table-active">
+            <td><%= link_to user.name, user_path(user)%></td>
+            <td><%= link_to source.description, source_path(source) %></td>
+            <td><%= link_to source.link, source.link %></td>
+            <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
+              <%= form.hidden_field :id, value: collection_source.id %>
+              <td> <%= form.submit 'x', class: 'btn btn-link p-0 m-0 align-baseline' %> </td>
             <% end %>
-          <% end %>
+          </tr>
+        <% end %>
+
         </tbody>
       </table>
       <% else %>
@@ -41,3 +40,4 @@
   </div>
 
 </div>
+

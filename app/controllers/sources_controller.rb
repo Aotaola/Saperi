@@ -31,7 +31,7 @@ class SourcesController < ApplicationController
     end
     def update
         if @source.update(source_params)
-            redirect_to sources_path,
+            redirect_to @source,
             notice: "Source has been updated"
         else
             flash[:error] = "Error updating source"
