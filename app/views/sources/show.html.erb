@@ -3,7 +3,7 @@
   <br/>
     <div class='jumbotron'>
         <div class="container-sm">
-           <%= link_to "Edit", edit_source_path, class: 'btn btn-outline-danger justify-content-end' %>
+           
             <h3> Description: <%= @source.description %>  </h3>
             <h4>Link: <%=link_to @source.link, @source.link %> </h4> 
             <hr class="my-4">
@@ -17,7 +17,6 @@
               <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
               <%= f.submit "Search!" , class: 'btn btn-outline-success'%>
           <% end %>
-        </div>
         <% if @collection.present? %>
           <p><%= pluralize(@collection.count, 'Result')%></p> 
               <div>
@@ -31,8 +30,9 @@
                   <%end%>      
                 </table>
               </div>
+          </div>
         <%end%>
-        </div>
+      </div>
   <body>
 <html>
           

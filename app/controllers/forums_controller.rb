@@ -2,8 +2,12 @@ class ForumsController < ApplicationController
     before_action :set_forum, only: [:show]
 
     def show
-        @users = @forum.users.includes(:sources)
-        @collection_sources = @forum.collection.collection_source.sources.includes(source: :user)
+        @users = @forum.users
+        @collection_sources = @forum.collection_sources.includes(:source)
+        Rails.logger.info @forum.collection_sources.inspect
+        puts @collection.collection_sources.inspect
+
+
     end
 
     def create
@@ -12,7 +16,6 @@ class ForumsController < ApplicationController
         else
             alert: "An error occurred"
         end
-        
     end
 
     private 

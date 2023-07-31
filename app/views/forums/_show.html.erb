@@ -1,43 +1,45 @@
-<div class = 'container-lg'>
-
-  <div class = 'container-md'>
+<div class='container-lg'>
+  <div class='container-md'>
     <% if @user.present? %>
-    <%= button_to 'join', user_forums_path, params: {forum_id: @forum}, class: 'btn btn-outline-light', method: :post %>
-    <%end%>
-  <div class = 'container-sm '>
-  </div>
-
-  <div class = 'container-sm '>
-    <% if @collection_sources.present? %>
-      <table class="table table-light-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @collection_sources.each do |collection_source|%>
-          <% user = collection_source.source.user %>
-          <% source = collection_source.source %>
-          <tr class="table-active">
-            <td><%= link_to user.name, user_path(user)%></td>
-            <td><%= link_to source.description, source_path(source) %></td>
-            <td><%= link_to source.link, source.link %></td>
-            <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
-              <%= form.hidden_field :id, value: collection_source.id %>
-              <td> <%= form.submit 'x', class: 'btn btn-link p-0 m-0 align-baseline' %> </td>
-            <% end %>
-          </tr>
-        <% end %>
-
-        </tbody>
-      </table>
-      <% else %>
-      <p>This forum currently has no members.</p>
+      <%= button_to 'Join', user_forums_path(forum_id: @forum), method: :post, class: 'btn btn-outline-light' %>
     <% end %>
+    <div class='container-sm'></div>
+    <div class='container-sm'>
+      <% if @collection_sources.present? %>
+        <table class="table table-striped table-light">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Link</th>
+              <th>id</th>
+              <th>Actions</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <% @collection_sources.each do |collection_source| %>
+              <% user = collection_source.source.user %>
+              <% source = collection_source.source %>
+              <% id = collection_source.id %>
+              <tr class="table-active">
+                <td><%= link_to user.name, user_path(user) %></td>
+                <td><%= link_to source.description, source_path(source) %></td>
+                <td><%= link_to source.link, source.link %></td>
+                <td><%= id %></td>
+                <td>
+                  <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
+                    <%= form.hidden_field :id, value: collection_source.id %>
+                    <%= form.submit 'Remove', class: 'btn btn-outline-secondary ' %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>This forum currently has no members.</p>
+      <% end %>
+    </div>
   </div>
-
 </div>
-

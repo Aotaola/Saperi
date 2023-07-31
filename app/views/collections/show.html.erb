@@ -1,20 +1,21 @@
+<!DOCTYPE html>
 <html>
-    <header>
-        <div class = "container-md">
-        <%= button_to 'Add', collection_user_collections_path(@collection), class: 'btn btn-outline-dark', method: :post %>
-            <div class="jumbotron">
-                <h1 class="display-4"><%= @collection.title %></h1>
-            <p class="lead"><%= @collection.description%></p>
-            <hr class="my-4">
-            <p class="lead">
-            </div>
-    </header>
+
+
     <body>
-        <div class = 'jumbotron'>
-            <%= render partial: 'forums/show', locals: {forum: @forum} %>  
-        <hr class="my-4">
-        </div>
-        </div>
+        <header>
+            <div class="container-sm">
+                <%= button_to 'Add', collection_user_collections_path(@collection), class: 'btn btn-outline-dark', method: :post %>
+                <div class='jumbotron'>
+                    <h1 class="display-4"><%= @collection.title %></h1>
+                    <p class="lead"><%= @collection.description %></p>
+                    <hr class="my-4">
+                </div>
+            </div>
+        </header>
+            <div class='container-sm'>
+                <%= render partial: 'forums/show', locals: {forum: @collection.forum, collection_sources: @collection_sources} %>  
+            </div>
     </body>
 </html>
 

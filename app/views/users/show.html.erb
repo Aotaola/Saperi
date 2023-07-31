@@ -1,50 +1,70 @@
 <html>
-    <head id='profile-card'>
-        <div class='container-sm '>
-            <div class="card">
+    
+    <body>
+        <header>
+        <div class='container-lg '>
+            
                 <div class="card-body">
                     <div class='jumbotron'>
                         <h1 class="card-title"><%= @user.name %></h1>
                         <p class="card-text"><%= @user.bio %></p>
                     </div>
                 </div>
-            </div>
+            
+        <hr class="my-4"/>
         </div>
-    <head>
-    <body>
-        <div class='container-sm'>
-            <div class='mt-4'>
+        </header>
+        <div class='container-sm '>
+            <table class='table table-light table-striped '>
                 <h4>My Sources</h4>
-                <% if @sources %>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Link</th>
+                        <th>Edit Source</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <% if @sources %>
                     <% @sources.each do |source| %>
-                        <div class='card mt-2'>
-                            <div class='card-body'>
-                                <p>Description: <%= link_to source.description, source_path(source) %></p>
-                                <p>Link: <%= link_to source.link, source.link %></p>
-                            </div>
-                        </div>
+                        <tr>
+                            <th><%= link_to source.description, source_path(source) %></th>
+                            <th><%= link_to source.link, source.link %></th>
+                            <th><%= link_to 'Edit', edit_source_path(source), class: 'btn btn-outline-secondary'%>
+                        </tr>
+                        <% end %>
                     <% end %>
-                <% end %>
-            </div>
-            <div class='mt-4'>
+                <tbody>
+            </table>
+            
                 <h4>My Collections</h4>
                 <% if @collections %>
-                    <% @collections.each do |collection| %>
-                        <div class='card mt-2'>
-                            <div class='card-body'>
-                                <%= link_to collection.title, collection_path(collection) %>
-                                <% collection.user_collections.each do |user_collection|%>
-                                   <%= button_to "remove", collection_user_collection_path(collection.id, user_collection.id), method: :delete %>
-                                <%end%>
-                            </div>
-                        </div>
+                    <table class="table table-light table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>remove association</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% @collections.each do |collection| %>
+                            <tr>
+                                <td> <%= link_to collection.title, collection_path(collection) %></td>
+                                <td> <%= collection.description%></td>
+                                    <% user_collection = collection.user_collections.find_by(user: @user) %>
+                                <td><%= button_to "X", collection_user_collection_path(collection.id, user_collection.id), method: :delete, class: "btn btn-outline-secondary"  %></td> 
+                            <tr>
+                        </tbody>
                     <% end %>
                 <% end %>
-            </div>
+                    </table>
+            
             <div class='mt-4'>
                 <%= link_to "Edit your profile", edit_user_path, class: 'btn btn-outline-primary' %>
                 <%= button_to "Sign Out", signout_path, class: 'btn btn-outline-danger', method: :delete %>
             </div>
-            <div class="collection_circle"></div>
+            
         </div>
+    <body>
 </html>

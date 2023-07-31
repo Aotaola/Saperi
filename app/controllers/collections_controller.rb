@@ -11,8 +11,9 @@ class CollectionsController < ApplicationController
    def show
       @forum = @collection.forum
       @users = @collection.users
+      @user_collection = @collection.user_collections
+      @collection_sources = @collection.collection_sources.includes(:source)
       @sources = @collection.sources.includes(:users)
-      @user_collection = @collection.user_collections.user
    end
    
    def edit
