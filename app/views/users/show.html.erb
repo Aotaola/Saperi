@@ -1,5 +1,4 @@
 <html>
-    
     <body>
         <header>
         <div class='container-lg '>
@@ -18,7 +17,7 @@
         </div>
         </header>
         <div class='container-sm '>
-            <table class='table table-dark table-striped '>
+            <table class='table table-light table-striped '>
                 <h4>My Sources</h4>
                 <thead>
                     <tr>
@@ -42,7 +41,7 @@
             
                 <h4>My Collections</h4>
                 <% if @collections %>
-                    <table class='table table-dark table-striped'>
+                    <table class='table table-light table-striped'>
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -63,7 +62,7 @@
                 <% end %>
                     </table>
             
-            <table class="table table-dark table-striped">
+            <table class="table table-light table-striped">
                 <thead>
                  <tr>
                     <th>*</th>
@@ -76,13 +75,11 @@
                     <tr>
                         <th>*</th>
                         <th> <%= link_to "//", edit_user_path, class: 'btn btn-outline-primary' %></th>
-                        <%# <th>Sapiam</th> %>
                         <th></th>
                         <th><%= button_to "!!!", signout_path, class: 'btn btn-outline-danger', method: :delete %></th>
                     <tr>
                 <tbody>
             </table>
-            
         </div>
-    <body>
+    </body>
 </html>

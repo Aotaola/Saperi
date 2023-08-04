@@ -1,56 +1,59 @@
-
-<div class="container-sm">
-  <br/>
-  <div class="jumbotron">
-      <h1 >Collections</h1>
-      <div class="collection_circle"></div>
-    <hr class="my-4">
+<html>
+  <body>
+    <br/>
+    <div class = 'container-sm'>
+      <div class="jumbotron">
+          <h1>Collections</h1>
+      </div>
+      <hr class="my-4">
       <br/>
       <div class = 'container-sm'>
         <%= search_form_for(@query, class:'d-flex') do |f| %>
           <%= f.search_field :title_or_description_cont_any, placeholder: "Search...", class: 'form-control me-2' %>
           <%= f.submit "Search!" , class: 'btn btn-outline-primary'%>
         <% end %>
-    </div>
-    <% if @col.present? %>
+      </div>
+      <% if @col.present? %>
       <h4><%= pluralize(@col.count, 'Result')%></h4> 
       <div class="container-md"> 
         <% @col.each do |collection|%>
-          <h4 class="">
-            <%= link_to collection.title, collection_path(collection) %>
-          </h4>
-          <br/>
+        <p class="">
+          <%= link_to collection.title, collection_path(collection) %>
+        </p>
+        <br/>
         <%end%>
       </div>
-    <%end%>
-    <br/>
-    <table class = 'table table-light-stripped'>
-      <thead>
-        <tr>
-          <th>name and description</th>
-          <th>add</th>
-        </tr>
-      </thead>
-      <tbody>
+        <%end%>
+        <br/>
+      <table class = 'table table-light-stripped'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>add</th>
+          </tr>
+        </thead>
+        <tbody>
           <% @collections.each do |collection|%>
           <tr>
-            <th><%= link_to collection.title, collection_path(collection) %>
-          
-            <%= collection.description %> </th>
+            <th><%= link_to collection.title, collection_path(collection) %></th>      
+            <th><%= collection.description %> </th>
             <th><%= link_to '+', collection_user_collections_path(collection_id: collection.id), class: 'btn btn-outline-dark'%></th>
-        <tr/>
-      <%end%>
-      </tbody>
-    <table>
-    <br/>
-    <%= will_paginate @collections, 
-        class: 'pagination', 
-        previous_label: 'Previous', 
-        next_label: 'Next', 
-        inner_window: 5, 
-        outer_window: 1,  
-        page_links: true, 
-        params: { controller: 'collections', action: 'index' } %>
-  </div>
-
-</div>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+      <br/>  
+      <div class = 'container-sm'>
+        <%= will_paginate @collections, 
+          class: 'pagination', 
+            previous_label: 'Previous', 
+            next_label: 'Next', 
+            inner_window: 5, 
+            outer_window: 1,  
+            page_links: true, 
+            params: { controller: 'collections', action: 'index' } %>
+      </div>
+    </div>
+  </body>
+</html>

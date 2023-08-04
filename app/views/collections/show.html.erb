@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-
     <body>
-        <header>
             <div class="container-sm">
                 <%= button_to 'Add', collection_user_collections_path(@collection), class: 'btn btn-outline-dark', method: :post %>
                 <div class='jumbotron'>
@@ -12,7 +9,6 @@
                     <hr class="my-4">
                 </div>
             </div>
-        </header>
             <div class='container-sm'>
                 <%= render partial: 'forums/show', locals: {forum: @collection.forum, collection_sources: @collection_sources} %>  
             </div>
