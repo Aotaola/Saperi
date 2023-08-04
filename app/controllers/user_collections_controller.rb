@@ -7,14 +7,11 @@ class UserCollectionsController < ApplicationController
 
     end
     def index
-        @user_collections = UserCollections.all
-        render @user_collections
     end
     def new
 
     end
     def create
-
         if @user_collection.save
             redirect_to @collection,
             notice: 'You have added this collection to your profile'
@@ -22,7 +19,6 @@ class UserCollectionsController < ApplicationController
             redirect_to @collection,
             alert: 'something went wrong'
         end
-
     end
     def destroy
         @user_collection = UserCollection.find(params[:id])

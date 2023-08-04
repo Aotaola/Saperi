@@ -89,7 +89,7 @@ html, body {
   animation: pulse1 2s infinite;
   top: 40%;
   right: 50%;
-  background-color: rgb(119, 0, 255);
+  background-color: rgb(129, 129, 129);
 }
 #signup-page .circle1 {
   animation: pulse1 2s infinite;
@@ -114,7 +114,7 @@ html, body {
   animation: pulse2 3s infinite;
   bottom: 20%;
   right: 80%;
-  background-color: rgb(84, 84, 84);
+  background-color: rgb(212, 212, 212);
 }
 #signup-page .circle2 {
   animation: pulse2 3s infinite;
@@ -150,6 +150,11 @@ html, body {
   animation: pulse3 3.4s infinite;
   background-color: red;
 }
+#login-page .circle3 {
+  animation: pulse3 3.4s infinite;
+  background-color: rgb(248, 248, 252);
+}
+
 #new-collection .circle3 {
   animation: pulse3 3.4s infinite;
   background-color: rgb(153, 0, 255);
@@ -193,7 +198,11 @@ html, body {
   left: 49%;
   right: 49%;
 }
-
+.custom-avatar {
+  width: 100px;  /* replace with your desired width */
+  height: 100px; /* replace with your desired height */
+  object-fit: cover; /* this will ensure the image covers the whole area without distortion */
+}
 
 
 @keyframes pulse5 {

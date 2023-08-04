@@ -24,15 +24,24 @@
       </div>
     <%end%>
     <br/>
-      <% @collections.each do |collection|%>
-        
-          <h4>
-          <%= link_to collection.title, collection_path(collection) %>
-          </h4>
-          <p><%= collection.description %></p>
-        <br/>
+    <table class = 'table table-light-stripped'>
+      <thead>
+        <tr>
+          <th>name and description</th>
+          <th>add</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @collections.each do |collection|%>
+          <tr>
+            <th><%= link_to collection.title, collection_path(collection) %>
+          
+            <%= collection.description %> </th>
+            <th><%= link_to '+', collection_user_collections_path(collection_id: collection.id), class: 'btn btn-outline-dark'%></th>
+        <tr/>
       <%end%>
-    <div>
+      </tbody>
+    <table>
     <br/>
     <%= will_paginate @collections, 
         class: 'pagination', 

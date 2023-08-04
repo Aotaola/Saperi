@@ -3,13 +3,16 @@
     <body>
         <header>
         <div class='container-lg '>
-            
-                <div class="card-body">
-                    <div class='jumbotron'>
-                        <h1 class="card-title"><%= @user.name %></h1>
-                        <p class="card-text"><%= @user.bio %></p>
-                    </div>
+
+            <div class="card-body d-flex justify-content-between">
+                <div class='jumbotron'>
+                    <h1 class="card-title"><%= @user.name %></h1>
+                    <p class="card-text"><%= @user.bio %></p>
+              </div>
+               <div>
+                    <%= image_tag(@user.avatar, class: " custom-avatar ml-auto d-block" , alt: 'placeholder') %>
                 </div>
+            </div>
             
         <hr class="my-4"/>
         </div>

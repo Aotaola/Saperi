@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_07_20_014830) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "collection_sources", force: :cascade do |t|
-    t.integer "source_id", null: false
-    t.integer "collection_id", null: false
+    t.bigint "source_id", null: false
+    t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collection_id"], name: "index_collection_sources_on_collection_id"
@@ -29,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_014830) do
   end
 
   create_table "forums", force: :cascade do |t|
-    t.integer "collection_id", null: false
+    t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collection_id"], name: "index_forums_on_collection_id"
@@ -38,15 +41,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_014830) do
   create_table "sources", force: :cascade do |t|
     t.string "description"
     t.string "link"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sources_on_user_id"
   end
 
   create_table "user_collections", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "collection_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collection_id"], name: "index_user_collections_on_collection_id"
@@ -54,8 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_014830) do
   end
 
   create_table "user_forums", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "forum_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "forum_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["forum_id"], name: "index_user_forums_on_forum_id"
