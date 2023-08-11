@@ -253,6 +253,8 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  bundle lock --add-platform x86_64-linux
+
 
 DEPENDENCIES
   active_model_serializers
