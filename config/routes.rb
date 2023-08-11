@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'application#home'
   get '/about', to: 'application#about'
+  get '/dropdown', to: 'layouts#dropdown'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
