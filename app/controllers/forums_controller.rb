@@ -6,15 +6,13 @@ class ForumsController < ApplicationController
         @collection_sources = @forum.collection_sources.includes(:source)
         Rails.logger.info @forum.collection_sources.inspect
         puts @collection.collection_sources.inspect
-
-
     end
 
     def create
         if @forum.save
             UserForum.create(user_id: current_user.id, forum_id: @forum.id)
         else
-            alert: "An error occurred"
+            flash[:error] = "An error occurred"
         end
     end
 
