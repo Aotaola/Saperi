@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
     validates :name, presence: true
     validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, message: 'must be a valid email address' }
+    #validates :avatar, presence: true
     validates :password, presence: true
     validates :bio, length: {minimum: 5, maximum:250}
     
