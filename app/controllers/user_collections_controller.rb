@@ -1,23 +1,21 @@
 class UserCollectionsController < ApplicationController
-    before_action :set_collection, only: [:show,  :destroy, :create, :new, :create]
-    before_action :set_user_collection, only: [:create, :show, :index]
+    before_action :set_collection, only: [:show,  :destroy, :create, :new]
+    before_action :set_user_collection, only: [:new, :create, :show]
 
 
     def show
 
-    end
-    def index
     end
     def new
 
     end
     def create
         if @user_collection.save
-            redirect_to @collection,
-            notice: 'You have added this collection to your profile'
+            flash[:notice] = 'You have added this collection to your profile'
+            redirect_back(fallback_location: root_path)
         else
-            redirect_to @collection,
-            alert: 'something went wrong'
+            flash[:alert] = 'something went wrong'
+            redirect_back(fallback_location: root_path)
         end
     end
     def destroy

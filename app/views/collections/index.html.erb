@@ -38,7 +38,7 @@
           <tr>
             <th><%= link_to collection.title, collection_path(collection) %></th>      
             <th><%= collection.description %> </th>
-            <th><%= link_to '+', collection_user_collections_path(collection_id: collection.id), class: 'btn btn-outline-dark'%></th>
+            <th><%= button_to '+',  collection_user_collections_path(collection_id: collection.id, user: current_user.id), class: "btn btn-outline-secondary"%> </th> 
           </tr>
           <%end%>
         </tbody>
