@@ -30,7 +30,7 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>add</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -38,7 +38,6 @@
           <tr>
             <th><%= link_to collection.title, collection_path(collection) %></th>      
             <th><%= collection.description %> </th>
-            <th><%= button_to '+',  collection_user_collections_path(collection_id: collection.id, user: current_user.id), class: "btn btn-outline-secondary"%> </th> 
           </tr>
           <%end%>
         </tbody>

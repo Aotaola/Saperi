@@ -61,7 +61,7 @@
           <%# target for my collapse button %>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li>
+              <li class="nav-item">
                 <%= link_to 'About', about_path, class:"nav-link"%>
               </li>
               <li class="nav-item">
@@ -71,34 +71,17 @@
                 <%= link_to 'Login', login_path, class: "nav-link"%>
               </li>
             <% if current_user.present? %>
-              <li>
+              <li class="nav-item">
               <%= link_to 'New Collection', new_collection_path, class:"nav-link" %>
               </li>
               <li>
               <%= link_to 'New source', new_source_path, class:"nav-link" %> 
               </li>
             </ul>
-              <div class="d-flex">
+              <li class="d-flex nav-item">
                 <%= button_to 'Profile', user_path(@current_user), method: :get, class: "btn btn-outline-primary"%>
-              </div>
+              </li>
             <%end %>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to 'Collections', collections_path, class:"dropdown-item"%>
-              </li> 
-              <li>
-                <%= link_to 'About', about_path, class:"dropdown-item"%>
-              </li> 
-              <li>
-                <%= link_to 'Login', login_path, class: "dropdown-item"%>
-              </li> 
-              <li><hr class="dropdown-divider"></li>
-              <%if current_user.present? %>
-              <li> 
-                <%= link_to 'Profile', user_path(@current_user), method: :get, class: "dropdown-item btn btn-outline-primary"%>
-              </li> 
-              <%end %>
-            </ul>    
           </div>
         </div>
       </nav>
