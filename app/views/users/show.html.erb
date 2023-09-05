@@ -18,7 +18,7 @@
         </header>
         <div class='container-sm '>
             <table class='table table-light table-striped '>
-                <h4><%= link_to 'New source', new_source_path, class: 'nav-link' %></h4>
+                <h4><%= link_to 'Source +', new_source_path, class: 'profile-link' %></h4>
                 <thead>
                     <tr>
                         <th>Description</th>
@@ -39,7 +39,7 @@
                     <% end %>
             </table>
             
-                <h4><%= link_to 'New Collection', new_collection_path, class: 'nav-link' %></h4>
+                <h4><%= link_to 'Collection +', new_collection_path, class: 'profile-link' %></h4>
                 <% if @collections %>
                     <table class='table table-light table-striped'>
                         <thead>
