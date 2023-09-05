@@ -203,6 +203,25 @@ html, body {
   height: 100px; /* replace with your desired height */
   object-fit: cover; /* this will ensure the image covers the whole area without distortion */
 }
+.profile-link{
+  font-family: century;
+  color: midnightblue;
+  font-style: normal;
+  text-decoration: none;
+
+
+}
+.profile-link:hover {
+  transition-duration: 0.7s;
+  color: steelblue; 
+  background-color: aliceblue;
+  padding: 8px;
+  margin: 1rem;
+  border-width: 10px;
+  border-color: black;
+  border-radius: 2rem;
+
+}
 
 
 @keyframes pulse5 {
