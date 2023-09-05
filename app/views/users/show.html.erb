@@ -17,9 +17,8 @@
         </div>
         </header>
         <div class='container-sm '>
-                <%= link_to 'Sources', new_source_path, class:"btn btn-outline-dark justify-content-center" %>
-                
-            <table class='table table-light table-striped table-hover '>
+            <table class='table table-light table-striped '>
+                <h4><%= link_to 'New source', new_source_path, class: 'nav-link' %></h4>
                 <thead>
                     <tr>
                         <th>Description</th>
@@ -40,7 +39,7 @@
                     <% end %>
             </table>
             
-                <%= link_to 'Collections', new_collection_path, class:"btn btn-outline-dark" %>
+                <h4><%= link_to 'New Collection', new_collection_path, class: 'nav-link' %></h4>
                 <% if @collections %>
                     <table class='table table-light table-striped table-hover'>
                         <thead>
