@@ -22,7 +22,7 @@
               <% source = collection_source.source %>
               <% id = collection_source.id %>
               <tr class="table-active">
-                <td><%= link_to user.name, user_path(user) %></td>
+                <td><%= user.name %></td>
                 <td><%= link_to source.description, source_path(source) %></td>
                 <td><%= link_to source.link, source.link %></td>
                 <td>
