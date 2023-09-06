@@ -12,7 +12,7 @@
               <th>Name</th>
               <th>Description</th>
               <th>Link</th>
-              <th>Actions</th>
+              <%# <th>Actions</th> %>
 
             </tr>
           </thead>
@@ -28,7 +28,7 @@
                 <td>
                   <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
                     <%= form.hidden_field :id, value: collection_source.id %>
-                    <%= form.submit 'Remove', class: 'btn btn-outline-secondary ' %>
+                    <%# <%= form.submit 'Remove', class: 'btn btn-outline-secondary ' %> 
                   <% end %>
                 </td>
               </tr>
