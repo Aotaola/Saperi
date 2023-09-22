@@ -12,29 +12,37 @@
               <th>Name</th>
               <th>Description</th>
               <th>Link</th>
-              <%# <th>Actions</th> %>
-
             </tr>
           </thead>
           <tbody>
             <% @collection_sources.each do |collection_source| %>
               <% user = collection_source.source.user %>
               <% source = collection_source.source %>
-              <% id = collection_source.id %>
               <tr class="table-active">
-                <td><%= user.name %></td>
-                <td><%= link_to source.description, source_path(source) %></td>
-                <td><%= link_to source.link, source.link %></td>
-                <td>
+                <th><%= user.name %></th>
+                <th><%= link_to source.description, source_path(source) %></th>
+                <th><%= link_to source.link, source.link %></th>
+                <th>
                   <%= form_with url: remove_path, method: :delete, class: 'd-inline' do |form| %>
                     <%= form.hidden_field :id, value: collection_source.id %>
-                    <%# <%= form.submit 'Remove', class: 'btn btn-outline-secondary ' %> 
                   <% end %>
-                </td>
+                </th>
               </tr>
+            <% end %>
+            
+            <% if @collection_sources.count < 10 %>
+              <% (10 - @collection_sources.count).times do %>
+                <tr>
+                  <th>.</th>
+                  <th>.</th>
+                  <th>.</th>
+                  <th>.</th>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
+
       <% else %>
         <p>This forum currently has no posted sources.</p>
       <% end %>
