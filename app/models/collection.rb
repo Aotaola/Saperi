@@ -21,7 +21,7 @@ class Collection < ApplicationRecord
         ['sources', 'forum', 'users']
     end
     def self.ransackable_attributes(auth_object = nil)
-        ["title", "description"]
+        ["title"]
     end
     
 end
