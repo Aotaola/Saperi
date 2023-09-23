@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
     helper_method :current_user
     helper_method :render_errors
     before_action :logged_in
@@ -16,4 +17,5 @@ class ApplicationController < ActionController::Base
     def logged_in
       !!current_user
     end
+
 end

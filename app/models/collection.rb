@@ -6,7 +6,7 @@ class Collection < ApplicationRecord
     has_one :forum
 
     validates :title, presence: true, length: {minimum: 5, maximum: 80}
-    validates :description, length: {minimum: 5, maximum: 250}
+    validates :description, length: {minimum: 5}
     
     attr_accessor :user_id
 
@@ -21,7 +21,7 @@ class Collection < ApplicationRecord
         ['sources', 'forum', 'users']
     end
     def self.ransackable_attributes(auth_object = nil)
-        ["title", "description"]
+        ["title"]
     end
     
 end

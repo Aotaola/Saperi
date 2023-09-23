@@ -2,7 +2,6 @@ class UserCollectionsController < ApplicationController
     before_action :set_collection, only: [:show,  :destroy, :create, :new]
     before_action :set_user_collection, only: [:new, :create, :show]
 
-
     def show
 
     end
