@@ -1,25 +1,30 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Saperi: API Resource Sharing Platform
 
-Things you may want to cover:
+## Overview
+Saperi is designed to enhance accessibility for programmers, acting as a resource-sharing platform tailored for developers of all levels. The application is built using Ruby on Rails and Bootstrap for a responsive UI.
 
-* Ruby version
+## Features
+- **User Experience**: Powered by Bootstrap for responsiveness across devices.
+- **Resource Sharing**: Platform to share and learn about various API resources.
 
-* System dependencies
+## Getting Started
 
-* Configuration
+### Prerequisites
+- **Ruby Version**: (Specify the required version)
+- **System Dependencies**: Ensure you have Ruby on Rails and its necessary dependencies.
 
-* Database creation
+### Configuration
+1. Install the necessary bundles:
+   ```bash
+   bundle install
+   ```
 
-* Database initialization
+2. Start the Rails server:
+   ```bash
+   rails server
+   ```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Saperi
+### Database
+- **Creation**: (Instructions on how to set up the database)
+- **Initialization**: (Details on initializing the database)

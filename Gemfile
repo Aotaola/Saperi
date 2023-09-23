@@ -48,6 +48,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
+
+gem 'webpacker'
+
 # gem "sassc-rails"
 gem 'valid_email', '~> 0.1.4'
 
@@ -81,4 +84,5 @@ end
 gem "ransack", "~> 4.0"
 
 gem 'will_paginate', '~> 3.3.0'
+
 

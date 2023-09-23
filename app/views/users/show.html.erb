@@ -32,7 +32,7 @@
                         <tr>
                             <th><%= link_to source.description, source_path(source) %></th>
                             <th><%= link_to source.link, source.link %></th>
-                            <th><%= link_to '//', edit_source_path(source), class: 'btn btn-outline-secondary'%>
+                            <th><%= link_to '^', edit_source_path(source), class: 'btn btn-outline-secondary'%>
                         </tr>
                 <tbody>
                         <% end %>
@@ -41,12 +41,13 @@
             
                 <h4><%= link_to 'Collection +', new_collection_path, class: 'profile-link' %></h4>
                 <% if @collections %>
-                    <table class='table table-light table-striped'>
+                    <table class='table table-light table-striped table-hover'>
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Collection name</th>
                                 <th>Description</th>
-                                <th>remove association</th>
+                                <th>remove me from collection</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -56,27 +57,28 @@
                                 <th> <%= collection.description%></td>
                                     <% user_collection = collection.user_collections.find_by(user: @user) %>
                                 <th><%= button_to "X", collection_user_collection_path(collection.id, user_collection.id), method: :delete, class: "btn btn-outline-secondary"  %></th> 
+                                
                             <tr>
                         </tbody>
                     <% end %>
                 <% end %>
                     </table>
             
-            <table class="table table-light table-striped">
+            <table class="table table-light table-striped table-hover">
                 <thead>
                  <tr>
-                    <th>*</th>
+                    
                     <th>Edit profile</th>
-                    <th> </th>
+                    <th></th>
                     <th>Signout</th>
                 </tr>
                 <thead>
                 <tbody>
                     <tr>
-                        <th>*</th>
-                        <th> <%= link_to "//", edit_user_path, class: 'btn btn-outline-primary' %></th>
+                        
+                        <th> <%= link_to "^", edit_user_path, class: 'btn btn-outline-primary' %></th>
                         <th></th>
-                        <th><%= button_to "!!!", signout_path, class: 'btn btn-outline-danger', method: :delete %></th>
+                        <th><%= button_to "X", signout_path, class: 'btn btn-outline-danger', method: :delete %></th>
                     <tr>
                 <tbody>
             </table>

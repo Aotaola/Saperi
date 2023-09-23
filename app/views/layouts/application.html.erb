@@ -54,16 +54,18 @@
           <a class="navbar-brand" href="/">
           <%= image_tag("Sapiam_Logo.png", class: "navbar-brand img-fluid" , alt: "Sapiam Logo") %>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="console.log('Button clicked!')"> 
+            <span class="navbar-toggler-icon">
+            </span>
           </button>
+          <%# target for my collapse button %>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li>
-                <%= link_to 'About', about_path, class: 'nav-link'%>
+              <li class="nav-item">
+                <%= link_to 'About', about_path, class:"nav-link"%>
               </li>
               <li class="nav-item">
-                <%= link_to 'Collections', collections_path, class: 'nav-link'%>
+                <%= link_to 'Collections', collections_path, class:"nav-link"%>
               </li>
               <li class="nav-item">
                 <%= link_to 'Login', login_path, class: "nav-link"%>
@@ -78,12 +80,7 @@
         </div>
       </nav>
       <%= yield %>
-      
-    
-
     </div>
-    
-    
   </body>
 <br/>
 </html>
